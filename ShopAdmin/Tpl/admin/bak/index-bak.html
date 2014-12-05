@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Index</title>
+        <link rel="stylesheet" href="__PUBLIC__/uploadify/uploadify.css">
+        <script src='__PUBLIC__/jquery.js'></script>
+        <script src='__PUBLIC__/uploadify/jquery.uploadify.min.js'></script>
+    </head>
+    <body>
+      
+         <div id="imgs"><img width="200px" src="__PUBLIC__/uploads/1.jpg"></div>
+        <input id="file_upload" name="file_upload" type="file" multiple="true" value="" />
+       
+    </body>
+    <script>
+        var img = '';
+		$('#file_upload').uploadify({
+	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
+	        	'uploader' : '{:U("Index/upload")}',   //上传的方法
+	        	'buttonText' : '缩略图上传',
+	        	'onUploadSuccess' : function(file, data, response) {
+	        	 var jsonimg=eval('('+data+')');
+	        	 if(jsonimg.status==0){
+	        		 alert(jsonimg.data);
+	        	 }else{
+		        	 //把上传的图片放入DIV中
+		        	 img += "<img width='200px' src='__UPLOAD__/"+jsonimg.data+"'>";
+	        		 $('#imgs').html(img);
+	        	 }
+        	}
+    	});
+    </script>
+</html>

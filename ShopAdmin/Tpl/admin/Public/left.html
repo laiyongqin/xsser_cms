@@ -1,0 +1,83 @@
+<div id="sidebar" class="collapse">
+   <div class="logo">
+    <a href="../Public/index.html"></a>
+  </div>
+  <ul id="sidebar_menu" class="navbar nav nav-list sidebar_box">
+    <li class="accordion-group {$c_letf_number==0?'active':''}">
+    <a class="dashboard" href="{:U("Index/index")}"><img src="../Public/img/menu_icons/dashboard.png">系统信息</a>
+    </li>
+    <li class="accordion-group {$c_letf_number==1?'active':''}">
+    <a class="accordion-toggle widgets collapsed"  href="{:U("DanyeNews/index")}">
+    <img src="../Public/img/menu_icons/tables.png">单页栏目</a>
+    <!-- <ul id="collapse1" class="accordion-body collapse {$c_letf_number==1?'in':''}">
+    </ul>-->
+    </li>
+    <li class="accordion-group {$c_letf_number==2?'active':''}">
+    <a class="accordion-toggle widgets collapsed"  href="{:U("News/index")}">
+    <img src="../Public/img/menu_icons/tables.png">新闻栏目</a>
+    <!--<ul id="collapse2" class="accordion-body collapse {$c_letf_number==2?'in':''}">
+    </ul>-->
+    </li>
+    <li class="accordion-group {$c_letf_number==3?'active':''}">
+    <a class="accordion-toggle widgets collapsed"  href="{:U("Product/index")}">
+    <img src="../Public/img/menu_icons/gallery.png">产品(普通自定义)栏目</a>
+    <!--<ul id="collapse3" class="accordion-body collapse {$c_letf_number==3?'in':''}">
+    </ul>-->
+    </li>
+    <li class="accordion-group {$c_letf_number==4?'active':''}">
+    <a class="accordion-toggle widgets collapsed"   href="{:U("OtherProduct/index")}">
+    <img src="../Public/img/menu_icons/gallery.png">其他自定义栏目</a>
+    <!--<ul id="collapse4" class="accordion-body collapse {$c_letf_number==4?'in':''}">
+    </ul>-->
+    </li>
+    <li class="accordion-group {$c_letf_number==5?'active':''}">
+    <a class="accordion-toggle widgets collapsed"  href="{:U("Productgaoji/index")}">
+    <img src="../Public/img/menu_icons/gallery.png">产品(高级自定义)栏目</a>
+    <!--<ul id="collapse5" class="accordion-body collapse {$c_letf_number==5?'in':''}">
+      <li><a href="../Public/tables_static.html">Static</a></li>
+      <li><a href="../Public/tables_dynamic.html">Dynamics</a></li>
+    </ul>-->
+    </li>
+    <li class="accordion-group {$c_letf_number==6?'active':''}">
+    <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse6">
+    <img src="../Public/img/menu_icons/statistics.png">商城系统</a>
+    <ul id="collapse6" class="accordion-body collapse {$c_letf_number==6?'in':''}">
+      <li><a href="{:U("ShopUser/index")}">注册用户管理</a></li>
+      <li><a href="{:U("ShopOrder/index")}">订单管理</a></li>
+      <li><a href="{:U("ShopCoupon/index")}">优惠卷信息管理</a></li>
+      <li><a href="{:U("ShopCouponGive/index")}">优惠卷发放记录</a></li>
+      <li><a href="{:U("ShopJifen/index")}">用户积分变更记录</a></li>
+    </ul>
+    </li>
+    <li class="accordion-group {$c_letf_number==7?'active':''}">
+    <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse7">
+    <img src="../Public/img/menu_icons/dashboard.png">系统设置</a>
+    <ul id="collapse7" class="accordion-body collapse {$c_letf_number==7?'in':''}">
+      <li><a href="{:U("ConfigModual/index")}">模型管理</a></li>
+      <li><a href="{:U("ConfigProducttype/index")}">普通自定义栏目类别管理</a></li>
+      <li><a href="{:U("ConfigProducttypegaoji/index")}">高级自定义栏目类别管理</a></li>
+      <li><a href="{:U("ConfigNewstype/index")}">信息类别管理</a></li>
+      <li><a href="{:U("ConfigConf/index")}">全局信息管理</a></li>
+      <li><a href="{:U("ConfigAdmin/index")}">管理人员管理</a></li>
+    </ul>
+    </li>
+   <li class="accordion-group {$c_letf_number==8?'active':''}">
+    <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse8">
+    <img src="../Public/img/menu_icons/widgets.png">评论管理</a>
+    <ul id="collapse8" class="accordion-body collapse {$c_letf_number==8?'in':''}">
+      <li><a href="{:U("PingNews/index")}">新闻表评论管理</a></li>
+      <li><a href="{:U("PingProduct/index")}">产品表评论管理</a></li>
+    </ul>
+    </li>
+    <li class="accordion-group {$c_letf_number==9?'active':''}">
+    <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse9">
+    <img src="../Public/img/menu_icons/others.png">工具箱</a>
+    <ul id="collapse9" class="accordion-body collapse {$c_letf_number==9?'in':''}">
+      <li><a href="{:U("Toolsdb/dbbak")}">点击备份数据库</a></li>
+      <li><a href="{:U("Toolslogin/index")}">后台登录记录</a></li>
+    </ul>
+    </li>
+  </ul>
+  <!-- End sidebar_box -->
+  <!-- End sidebar_box -->
+</div>
