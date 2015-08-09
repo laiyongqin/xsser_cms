@@ -16,7 +16,7 @@ $password = '0a6f40f5756f71c04856214cea056651';
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ZIP压缩程序 正邦修改版</title>
+<title>XSSER_CMS程序备份</title>
 <!-- css copied from wordpress -->
 <style type="text/css">
 <!--
@@ -32,7 +32,7 @@ html{background:#f9f9f9;}body{background:#fff;color:#333;font-family:sans-serif;
 
 <body>
   <form name="myform" id="myform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-<h1 style="color:#2583ad;">在线压缩ZIP文件程序</h1><br>
+<h1 style="color:#2583ad;">在线压缩-XSSER_CMS程序备份</h1><br>
 
 <div class="message">
       <p>使用方法:选定要压缩的文件或目录（包含子目录），即可开始压缩。压缩的结果保留原来的目录结构。<br />
@@ -47,7 +47,7 @@ html{background:#f9f9f9;}body{background:#fff;color:#333;font-family:sans-serif;
   	  ?>
 	  </p>
 </div>
-<?
+<?php
 if(!isset($_REQUEST["myaction"])):
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -63,7 +63,7 @@ if(!isset($_REQUEST["myaction"])):
   <script type="text/javascript">
   document.getElementById('password').focus();
   </script>
-<?
+<?php
 
 elseif($_REQUEST["myaction"]=="dolist"):
 
@@ -107,7 +107,7 @@ function selrev() {
 	}
 }
 </script>
-<?
+<?php
 
 elseif($_REQUEST["myaction"]=="dozip"):
 
