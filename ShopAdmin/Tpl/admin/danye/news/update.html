@@ -228,6 +228,7 @@
 		$('#file_upload_product_type').uploadify({
 	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
 	        	'uploader' : '{:U("Index/uploadimg")}',   //上传的方法
+	        	//'uploader' : '{:U("Index/qiniu_uploadfile")}',   //上传的方法
 	        	'buttonText' : '图片上传',
 	        	'onUploadSuccess' : function(file, data, response) {
 	        	 var jsonimg=eval('('+data+')');
@@ -235,6 +236,7 @@
 	        		 alert(jsonimg.data);
 	        	 }else{
 		        	 img = "/Uploads/"+jsonimg.data;
+		        	 //img = jsonimg.data;
 		        	 $('#upload_product_type').val(img);
 	        	 }
         	}

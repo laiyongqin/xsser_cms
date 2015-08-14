@@ -136,7 +136,7 @@ return array(
     //上传文件
     'XSSER_MY_UP_FILE'=>array(
             'savePath'=>'./Uploads/',//设置附件上传目录
-            'allowExts'=>  explode ( ',','jpg,gif,png,jpeg,bmp,rar,7z,zip,avi,rmvb,3gp,flv,mp3,wav,doc,docx,txt,xls,ppt,pdf'),//设置上传文件类型
+            'allowExts'=>  explode ( ',','jpg,gif,png,jpeg,bmp,rar,7z,zip,avi,rmvb,3gp,flv,mp3,mp4,swf,wav,doc,docx,txt,xls,ppt,pdf'),//设置上传文件类型
             'maxSize'=>3292200, //3292200//设置上传文件大小
 			'imageClassPath'=> '@.ORG.Image',// 设置引用图片类库包路径
 			'saveRule'=> 'uniqid',//设置上传文件规则
