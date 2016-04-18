@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$mymodual.product_title} - {$mymodualNtype.type_name}</title>
+<meta content="{$mymodual.keyword}" name="keywords" />
+<meta content="{$mymodual.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="../Public/css/style.css">
+<script src="../Public/js/jquery-1.9.1.min.js"></script>
+<script src="../Public/js/jquery.SuperSlide.js"></script>
+<script src="../Public/js/jqcode.js"></script>
+</head>
+<body>
+<include file="kj_top" />
+<div class="probanner"></div>
+<div id="main">
+	<div class="products cl">
+<include file="kj_left" />
+		<div class="proright">
+			<div class="location">当前位置：
+			<a href="{:U("index/index")}">首页</a>
+			<php>if($type_id!=150){ </php>
+			> <a href="{:U("index/anli")}">设备中心</a>
+			<php>}</php>
+			<php>if($type_id!=150&&$this_type_rank!=2){ </php>
+			> <a href="<php>echo U('index/anli',array('type_id'=>$fupt['id']));</php>"><php>echo $fupt["type_name"];</php></a>
+			<php>}</php>
+			 > <a href="<php>echo U('index/anli',array('type_id'=>$mymodualNtype['id']));</php>">{$mymodualNtype.type_name}</a>
+			 </div>
+			<div class="protop cl">
+				<div class="propic"><img src="{$mymodual.product_pic_s}" height="501" width="513" ></div>
+				<div class="proinfo">
+					<h3>{$mymodual.product_title}</h3>
+					<php> $param_array=split('[|]',$mymodual['param']);</php>   
+					<p><label>产品型号：</label> <php>echo $param_array[0];</php></p>
+					<p><label>产品范围：</label><php>echo $param_array[1];</php></p>
+				</div>
+			</div>
+			<php>if($param_array[2]!=""){</php>
+			<div class="prointro">
+				<h2>产品简介</h2>
+				<div class="prointrocon">
+					{$param_array[2]|str_replace='\"','"',###}
+				</div>
+			</div>
+			<php>}</php>
+			<php>if($param_array[3]!=""){</php>
+			<div class="prointro">
+				<h2>产品特点</h2>
+				<div class="prointrocon">
+					<ul class="pnlist">
+                        {$param_array[3]|str_replace='\"','"',###}
+					</ul>
+				</div>
+			</div>
+			<php>}</php>
+			<php>if($param_array[4]!=""){</php>
+			<div class="prointro">
+				<h2>应用领域</h2>
+				<div class="prointrocon">
+					{$param_array[4]|str_replace='\"','"',###}
+				</div>
+			</div>
+			<php>}</php>
+			<div class="prev_next">
+				<php>if($front!=null){</php><a href="<php>echo U('index/anli_show',array('id'=>$front['id']));</php>">上一个设备：{$front.product_title}</a><php>}else{echo '上一个设备:无数据!';}</php><br>
+				<php>if($after!=null){</php><a href="<php>echo U('index/anli_show',array('id'=>$after['id']));</php>">下一个设备：{$after.product_title}</a><php>}else{echo '下一个设备:无数据!';}</php>
+			</div>
+		</div>
+	</div>
+<include file="kj_mbot" />
+</div>
+<include file="kj_foot" />
+    <script>
+        $("#t2").addClass("current");
+    </script>
+    <SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=9713827&sort=0 ></SCRIPT></body>
+
+</body>
+</html>

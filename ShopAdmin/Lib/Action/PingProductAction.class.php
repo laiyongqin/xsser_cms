@@ -1,7 +1,12 @@
 <?php
 class PingProductAction extends BaseAction {
 	
-public function index() {
+	public $c_letf_number = 8;
+	
+	public function index() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		
 		$Model = M ( "Replyposts" );
 		
 		import ( '@.ORG.Page' ); // 导入分页类
@@ -34,6 +39,8 @@ public function index() {
 	
 	//修改模型
 	public function update_info() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
 		
 		$Modual = M ( "Replyposts" );
 		$mymodual = $Modual->find ( $_GET ["id"] );
@@ -52,18 +59,21 @@ public function index() {
 	
 	//修改模型
 	public function update() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		
 		$Modual = M ( "Replyposts" );
-		$mymodual = $Modual->find ( I('id'));
+		$mymodual = $Modual->find ( I ( 'id' ) );
 		
 		if ($mymodual ['show'] == 1) {
 			$rModel = M ( "Reply" );
-			$updata['content']=I ( 'content' );
-			if($rModel->where( " posts_id=%d ", I('id') )->save ( $updata )){
-			  $this->success ( '回复更新成功！', 'index' );
-			}else{
-			  $this->error ( '回复更新失败(也许是您没有做任何更改!)!' );
+			$updata ['content'] = I ( 'content' );
+			if ($rModel->where ( " posts_id=%d ", I ( 'id' ) )->save ( $updata )) {
+				$this->success ( '回复更新成功！', 'index' );
+			} else {
+				$this->error ( '回复更新失败(也许是您没有做任何更改!)!' );
 			}
-			 return ;
+			return;
 		}
 		
 		$Model = M ( "Reply" );
@@ -86,6 +96,9 @@ public function index() {
 	
 	//删除数据  //这里还应该存在删除一类 也删除这一类下面的文章
 	public function del() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		
 		$Modual = M ( "Replyposts" );
 		if ($Modual->where ( 'id=%d', $_GET ['id'] )->delete ()) {
 			//-====

@@ -68,9 +68,9 @@
     <![endif]-->
 </head>
 <body>
-<div id="loading">
+<!--<div id="loading">
   <img src="../Public/img/ajax-loader.gif">
-</div>
+</div>-->
 <div id="responsive_part">
     <div class="logo">
       <a href="index.html"></a> 
@@ -329,9 +329,9 @@
                 <label class="control-label span2" for="normal-field">是否推荐*</label>
                 <div class="controls span6">
                   <label class="inline radio">
-                  <input type="radio" name="news_reco" value="1"  checked="CHECKED" /> 是</label>
+                  <input type="radio" name="news_reco" value="1"  /> 是</label>
                   <label class="inline radio">
-                  <input type="radio" name="news_reco" value="0"   /> 否 </label>
+                  <input type="radio" name="news_reco" value="0"  checked="CHECKED"  /> 否 </label>
                 </div>
               </div>
               <div class="form-row control-group row-fluid">
@@ -398,7 +398,7 @@
         var img = '';
 		$('#file_upload_product_type').uploadify({
 	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
-	        	'uploader' : '{:U("Index/uploadimg")}',   //上传的方法
+	        	'uploader' : '{:U("Open/uploadimg")}',   //上传的方法
 	        	'buttonText' : '图片上传',
 	        	'onUploadSuccess' : function(file, data, response) {
 	        	 var jsonimg=eval('('+data+')');
@@ -524,9 +524,9 @@
     });
     </script>
 <script type='text/javascript'>
-    $(window).load(function() {
-     $('#loading').fadeOut();
-    });
+//$(window).load(function() {
+//$('#loading').fadeOut();
+//});
 
  $(document).ready(function() {
       $('body').css('display', 'none');

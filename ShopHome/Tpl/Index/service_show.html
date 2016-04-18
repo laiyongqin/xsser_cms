@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$mymodual.product_title} - {$mymodualNtype.type_name}</title>
+<meta content="{$mymodual.keyword}" name="keywords" />
+<meta content="{$mymodual.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="../Public/css/style.css">
+<script src="../Public/js/jquery-1.9.1.min.js"></script>
+<script src="../Public/js/jquery.SuperSlide.js"></script>
+<script src="../Public/js/jqcode.js"></script>
+</head>
+<body>
+<include file="kj_top" />
+<div id="main">
+<div class="tec">
+		<br><center><div class="servicepic"><img src="../Public/images/mbanner.jpg" height="281" width="1138" alt=""></div></center>
+</div>	
+		
+		<div class="tecon">
+		     <div class="stab">
+				<div class="stabt">
+					<ul class="cl">
+      <volist name="product_type_list" id="vo">
+      <li <php>echo $this_type_id==$vo['id']?"class=\"on\"":"";</php> ><a href="<php>echo U('index/service',array('type_id'=>$vo['id']));</php>#stabcon">{$vo.type_name}</a></li>
+      </volist>
+					</ul>
+				</div>
+			 </div>
+				
+		<br>	
+		<center><font size="3"><b>{$mymodual.product_title}</b></font></center>
+		<div style="float:right;margin-right: 10%"><span>
+		<a href="javascript:history.go(-1);">→返回</a>
+		</span> </div> 
+		<br><br>
+        <div style="font-size: 14px;"> {$mymodual.product_content|htmlspecialchars_decode}</div>
+        <br/>
+				
+				
+		</div>
+				
+				
+
+				
+				
+				
+				
+				
+
+<include file="kj_mbot" />
+</div>
+<include file="kj_foot" />
+    <script>
+        $("#t4").addClass("current");
+    </script>
+    <SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=9713827&sort=0 ></SCRIPT></body>
+
+</body>
+</html>

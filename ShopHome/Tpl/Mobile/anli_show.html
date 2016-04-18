@@ -1,0 +1,59 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="HandheldFriendly" content="true" />
+<title>{$mymodual.product_title} - {$mymodualNtype.type_name}</title>
+<meta content="{$mymodual.keyword}" name="keywords" />
+<meta content="{$mymodual.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="../Public/mcss/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../Public/mcss/style.css">
+<include file="top" />
+<section class="home">
+	<article class="mbox">
+	<br><br>
+		<h3><span class="cred">{$mymodual.product_title}</span></h3>
+				<div style="float:right;margin-top: -20px;"><span><a href="javascript:history.go(-1);">→返回</a></span> </div><br><br>
+			<div class="protop cl">
+				<div class="propic"><img src="{$mymodual.product_pic_s}"  width="80%" ></div>
+				<div class="proinfo">
+					<h3>{$mymodual.product_title}</h3>
+					<php> $param_array=split('[|]',$mymodual['param']);</php>   
+					<p><label>产品型号：</label> <php>echo $param_array[0];</php></p>
+					<p><label>产品范围：</label><php>echo $param_array[1];</php></p>
+				</div>
+			</div>
+			<php>if($param_array[2]!=""){</php>
+			<div class="prointro">
+				<h2>产品简介</h2>
+				<div class="prointrocon">
+					<php>echo $param_array[2];</php>
+				</div>
+			</div>
+			<php>}</php>
+			<php>if($param_array[3]!=""){</php>
+			<div class="prointro">
+				<h2>产品特点</h2>
+				<div class="prointrocon">
+					<ul class="pnlist">
+                        <php>echo $param_array[3];</php>
+					</ul>
+				</div>
+			</div>
+			<php>}</php>
+			<php>if($param_array[4]!=""){</php>
+			<div class="prointro">
+				<h2>应用领域</h2>
+				<div class="prointrocon">
+					<php>echo $param_array[4];</php>
+				</div>
+			</div>
+			<php>}</php>
+		
+		<br><br>
+		
+	</article>
+</section>
+<include file="foot" />

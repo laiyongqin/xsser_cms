@@ -23,9 +23,9 @@
     <![endif]-->
 </head>
 <body>
-<div id="loading">
+<!--<div id="loading">
   <img src="../Public/img/ajax-loader.gif">
-</div>
+</div>-->
 <div id="responsive_part">
     <div class="logo">
       <a href="index.html"></a> 
@@ -98,6 +98,16 @@
                 <label class="control-label span3" for="normal-field">账户密码*</label>
                 <div class="controls span7">
                   <input type="password" id="password-field" class="row-fluid password" name="admin_pass">
+                </div>
+              </div>
+              <div class="form-row control-group row-fluid">
+               <label class="control-label span3" for="normal-field">所属管理组</label>
+                <div class="controls span7">
+              <select  class="chzn-select" id="default-select" name="admin_power_id">
+                    <volist name="cpower_list" id="vo">
+                    <option value="{$vo['id']}"  <eq name="vo.id" value="$mymodual.admin_power">selected="selected"</eq> >{$vo.name}|{$vo.rank}</option>                   
+                    </volist>
+                  </select>
                 </div>
               </div>
               <div class="form-actions row-fluid">
@@ -175,9 +185,9 @@
 <script src="../Public/js/scripts.js"></script>
 
 <script type='text/javascript'>
-    $(window).load(function() {
-     $('#loading').fadeOut();
-    });
+    //$(window).load(function() {
+     //$('#loading').fadeOut();
+    //});
 
 
 </script>

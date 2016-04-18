@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$about_type.type_name}</title>
+<meta content="{$about_type.keyword}" name="keywords" />
+<meta content="{$about_type.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="../Public/css/style.css">
+<script src="../Public/js/jquery-1.9.1.min.js"></script>
+<script src="../Public/js/jquery.SuperSlide.js"></script>
+<script src="../Public/js/jqcode.js"></script>
+</head>
+<body>
+<include file="kj_top" />
+<div id="main">
+	<div class="services">
+		<div class="servicepic"><img src="../Public/images/mbanner.jpg" height="281" width="1138" alt=""></div>
+		<div class="servicetxt">
+			<h3>需求及现状</h3>
+			<p>金枪鱼的储存温度必须在-55°C以下，这样它的保质期就会在12个月左右，而冰金枪鱼的<br>
+			保鲜期只有12天左右。目前冰岩制冷已成功解决-60°C库温的稳定冷藏环<br>
+			境，而且改善了-30°C换重建的制冷工况，充分满足了金枪鱼冷库的低温需求，该技术完全可以<br>
+			打破国外技术壁垒，实现产业化。</p>
+		</div>
+		<div class="servicetxt">
+			<h3>意义</h3>
+			<p>金枪鱼的-60°C低温冷库设备不仅应用到金枪鱼储存，而且带动国内很多低温机械加工企业技术<br>革新，经济社会效益显著。</p>
+		</div>
+	</div>
+	<div class="tec">
+		<div class="tecon">
+			<h2>科研风采</h2>
+			<div class="stab">
+				<div class="stabt">
+					<ul class="cl">
+      <volist name="product_type_list" id="vo">
+      <li <php>echo $this_type_id==$vo['id']?"class=\"on\"":"";</php> ><a href="<php>echo U('index/service',array('type_id'=>$vo['id']));</php>#stabcon">{$vo.type_name}</a></li>
+      </volist>
+					</ul>
+				</div>
+				<div class="stabcon" id="stabcon">
+					<div class="stabc">
+						<ul class="slist cl">
+<volist name="thislist" id="vo" > 
+							<li>
+								<div class="spic"><a target="_blank" href="<php>echo U('index/service_show',array('id'=>$vo['id']));</php>"><img src="{$vo.product_pic_s}" height="227" width="271" alt=""></a></div>
+								<h5><a  target="_blank" href="<php>echo U('index/service_show',array('id'=>$vo['id']));</php>">{$vo.product_title|msubstr=0,38,"utf-8",true}</a></h5>
+							</li>
+</volist>
+						
+						</ul>
+						
+						
+						
+						<center>
+<div  class="custompage" >
+{$page}
+</div>
+</center>
+<style>
+.custompage{ width:100%; margin:0 auto; text-align:center;}
+.custompage  span{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:20px; height:20px; line-height:20px;}
+.custompage  span.current{display:inline-block;border:1px solid #ddd;font-weight:bold;text-align:center;padding:3px; margin:5px; width:20px; height:20px; line-height:20px;}
+.custompage  a.num{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:20px; height:20px; line-height:20px;}
+.custompage  a.next{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:30px; height:20px; line-height:20px;}
+.custompage  a.prev{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:30px; height:20px; line-height:20px;}
+.custompage  a:hover {1background-color: #363636;1color: #ffffff;}
+.custompage  a.current {1background-color: #BF1F1F;1color: #ffffff;}
+</style>
+<br><br>
+						
+						
+						
+						
+					</div>
+					<!--<div class="stabc">
+						<ul class="slist cl">
+						<volist name="p_huizhan_list" id="vo" >  
+							<li>
+								<div class="spic"><a href="<php>echo U('index/anli_show',array('id'=>$vo['id']));</php>"><img src="{$vo.product_pic_s}" height="227" width="271" alt=""></a></div>
+								<h5><a href="<php>echo U('index/anli_show',array('id'=>$vo['id']));</php>">{$vo.product_title}</a></h5>
+							</li>
+						</volist>
+						</ul>
+					</div>
+					<div class="stabc">
+						<ul class="slist cl">
+						<volist name="p_liushuixian_list" id="vo" >  
+							<li>
+								<div class="spic"><a href="<php>echo U('index/anli_show',array('id'=>$vo['id']));</php>"><img src="{$vo.product_pic_s}" height="227" width="271" alt=""></a></div>
+								<h5><a href="<php>echo U('index/anli_show',array('id'=>$vo['id']));</php>">{$vo.product_title}</a></h5>
+							</li>
+						</volist>
+						</ul>
+					</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+<include file="kj_mbot" />
+</div>
+<include file="kj_foot" />
+    <script>
+        $("#t4").addClass("current");
+    </script>
+    <SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=9713827&sort=0 ></SCRIPT></body>
+
+</body>
+</html>

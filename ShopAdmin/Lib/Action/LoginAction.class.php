@@ -69,7 +69,8 @@ class LoginAction extends Action {
 			} else {
 				$_SESSION ["admin_id"] = $mymodual ['id'];
 				$_SESSION ["admin_name"] = $mymodual ['admin_user'];
-				$_SESSION ["admin_rank"] = $mymodual ['admin_rank'];
+				$temp_power_rank=getadmin_power_rank($mymodual ['admin_power']);
+				$_SESSION ["admin_rank"] = $temp_power_rank;
 				$_SESSION ["admin_power"] = $mymodual ['admin_power'];
 				$logdata ['info1'] = "登录成功! 帐号:" . I ( 'username' );
 				$Model->add ( $logdata );

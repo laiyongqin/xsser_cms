@@ -66,9 +66,9 @@
     
 </head>
 <body>
-<div id="loading">
+<!--<div id="loading">
   <img src="../Public/img/ajax-loader.gif">
-</div>
+</div>-->
 <div id="responsive_part">
     <div class="logo">
       <a href="index.html"></a> 
@@ -155,7 +155,7 @@
         var img = '';
 		$('#file_product_pic_s').uploadify({
 	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
-	        	'uploader' : '{:U("Index/uploadthumbimg")}',   //上传的方法
+	        	'uploader' : '{:U("Open/uploadthumbimg")}',   //上传的方法
 	        	'buttonText' : '缩略图上传',
 	        	'onUploadSuccess' : function(file, data, response) {
 	        	 var jsonimg=eval('('+data+')');
@@ -180,7 +180,7 @@
         var img = '';
 		$('#file_product_pic_b').uploadify({
 	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
-	        	'uploader' : '{:U("Index/uploadimg")}',   //上传的方法
+	        	'uploader' : '{:U("Open/uploadimg")}',   //上传的方法
 	        	'buttonText' : '大图上传',
 	        	'onUploadSuccess' : function(file, data, response) {
 	        	 var jsonimg=eval('('+data+')');
@@ -233,7 +233,7 @@
 			<div class="form-row control-group row-fluid">
                 <label class="control-label span2" for="normal-field"><php> echo $muxing_shuxing_name[$i];</php></label>
                 <div class="controls span7">
-                  <textarea  id="mydefault-textarea<php> echo $i;</php>" name="param<php> echo $i;</php>" >{$param_array[$i]}</textarea>
+                  <textarea  id="mydefault-textarea<php> echo $i;</php>" name="param<php> echo $i;</php>" >{$param_array[$i]|str_replace='\"','"',###}</textarea>
                   <script type="text/javascript">    
                         var editor<php> echo $i;</php> = new baidu.editor.ui.Editor();    
                         editor<php> echo $i;</php>.render("mydefault-textarea<php> echo $i;</php>");//这里认的是上面控件的ID  
@@ -255,7 +255,7 @@
         var img = '';
 		$('#file_param<php> echo $i;</php>').uploadify({
 	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
-	        	'uploader' : '{:U("Index/uploadfile")}',   //上传的方法
+	        	'uploader' : '{:U("Open/uploadfile")}',   //上传的方法
 	        	'buttonText' : '上传',
 	        	'onUploadSuccess' : function(file, data, response) {
 	        	 var jsonimg=eval('('+data+')');
@@ -284,7 +284,7 @@
         var img = '';
 		$('#file_param<php> echo $i;</php>').uploadify({
 	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
-	        	'uploader' : '{:U("Index/uploadthumbimg")}',   //上传的方法
+	        	'uploader' : '{:U("Open/uploadthumbimg")}',   //上传的方法
 	        	'buttonText' : '上传',
 	        	'onUploadSuccess' : function(file, data, response) {
 	        	 var jsonimg=eval('('+data+')');
@@ -341,7 +341,7 @@
               <div class="form-row control-group row-fluid">
                 <label class="control-label span2" for="normal-field">内容*</label>
                 <div class="controls span7">
-                  <textarea  id="mydefault-textarea" name="product_content">{$mymodual.product_content}</textarea>
+                  <textarea  id="mydefault-textarea" name="product_content">{$mymodual.product_content|str_replace='\"','"',###}</textarea>
                   <script type="text/javascript">    
                         var editor = new baidu.editor.ui.Editor();    
                         editor.render("mydefault-textarea");//这里认的是上面控件的ID  
@@ -512,9 +512,9 @@
 
 
 <script type='text/javascript'>
-    $(window).load(function() {
-     $('#loading').fadeOut();
-    });
+//$(window).load(function() {
+//$('#loading').fadeOut();
+//});
 </script>
 
 </body>

@@ -1,0 +1,24 @@
+		<div class="proleft">
+			<div class="pronav">
+				<h2><img src="../Public/images/lt.png" height="114" width="265" ></h2>
+				<dl>
+            <!-- <volist name="thislist" id="vo">
+                	<php> if(($vo["type_rank"]) == "2"){ </php><dt><a href="#">{$vo.type_name}</a></dt><php>}</php> 
+					<php> if(($vo["type_rank"]) == "2"){ </php><dd><ul><php>$temp_id="OK";}</php> 
+					<php> if(($vo["type_rank"]) == "3"){ </php><li class="current"><a href="#">{$vo.type_name}</a></li><php>}</php>
+					<php> if($temp_id == "OK"&& ($vo["type_rank"]) == "2"){ </php></ul></dd><php>}</php> 
+            </volist>-->
+            <volist name="erjicaidan" id="vo">
+            		<dt><a href="<php>echo U('index/anli',array('type_id'=>$vo["id"]));</php>">{$vo.type_name}</a></dt>
+					<dd>
+						<ul>
+						<php>$sanjilist=get_sanji($vo["id"]);</php>
+						<volist name="sanjilist" id="vo2">
+							<li <php> if(($vo2["id"]) == $type_id){echo "class=\"current\""; }</php> ><a href="<php>echo U('index/anli',array('type_id'=>$vo2["id"]));</php>">{$vo2.type_name}</a></li>
+						 </volist>
+						</ul>
+					</dd>
+            </volist>
+				</dl>
+			</div>
+		</div>

@@ -23,9 +23,9 @@
     <![endif]-->
 </head>
 <body>
-<div id="loading">
+<!--<div id="loading">
   <img src="../Public/img/ajax-loader.gif">
-</div>
+</div>-->
 <div id="responsive_part">
     <div class="logo">
       <a href="index.html"></a> 
@@ -118,6 +118,7 @@
           <ul id="tabExample1" class="nav nav-tabs">
                                     <li class="active"><a href="#home1" data-toggle="tab">信息管理</a></li>
                                     <li><a href="#profile2" data-toggle="tab">增加信息</a></li>
+                                    <li><a href="#profile3" data-toggle="tab">管理员权限管理</a></li>
            </ul>
            <div class="tab-content">
                                     <div class="tab-pane fade in active" id="home1">
@@ -140,17 +141,17 @@
               <th class="no_sort">
               账户名字
               </th>
-              <th class="no_sort to_hide_phone">
-              账户密码(已加密，无法破解)
-              </th>
-              <th class="no_sort to_hide_phone">
-              系统标识
-              </th>
              <th class="no_sort to_hide_phone">
      注册IP地址
               </th>
              <th class="no_sort to_hide_phone">
               添加账户时间
+              </th>
+              <th class="no_sort to_hide_phone">
+              后台身份
+              </th>
+              <th class="no_sort to_hide_phone">
+              权限等级(0最高)
               </th>
               <th class="ms no_sort ">
               操作
@@ -165,14 +166,6 @@
                 {$vo.admin_user}
               </td>
               <td class="to_hide_phone">
-               {$vo.admin_pass}
-              </td>
-              <td class="to_hide_phone">
-                <div class="row-fluid">
-                {$vo.admin_uuid}
-                </div>
-              </td>
-              <td class="to_hide_phone">
                 <div class="row-fluid">
                 {$vo.login_ip|show_ip_address}
                 </div>
@@ -181,6 +174,14 @@
                 <div class="row-fluid">
                 {$vo.login_time|date="Y-m-d H:i:s",###}
                 </div>
+              </td>
+              <td class="to_hide_phone">
+                <div class="row-fluid">
+                {$vo.admin_power|getadmin_power_name}
+                </div>
+              </td>
+               <td class="to_hide_phone">
+               {$vo.admin_power|getadmin_power_rank}
               </td>
               <td class="ms">
                 <div class="btn-group1">
@@ -225,10 +226,7 @@
 
 
                                     <div class="tab-pane fade" id="profile2">
-                                    
-                                    
-                                    
-                                    
+      
      <!--  -->
             <div class="row-fluid">
              <div class="span10">
@@ -253,6 +251,16 @@
                   <input type="password" id="password-field" class="row-fluid password" name="admin_pass">
                 </div>
               </div>
+              <div class="form-row control-group row-fluid">
+               <label class="control-label span3" for="normal-field">所属管理组</label>
+                <div class="controls span7">
+                  <select  class="chzn-select" id="default-select" name="admin_power_id">
+                    <volist name="cpower_list" id="vo">
+                    <option value="{$vo['id']}" >{$vo.name}|{$vo.rank}</option>                   
+                    </volist>
+                  </select>
+                </div>
+              </div>
               <div class="form-actions row-fluid">
                 <div class="span7 offset3">
                   <button type="submit" class="btn btn-primary">保存</button>
@@ -267,18 +275,104 @@
              </div>
              </div>
    <!--  -->
-                                    
-                                    
-
-
-
-
-
-
-
 
 
                                     </div>
+                                    
+                                    
+        <div class="tab-pane fade" id="profile3">
+        
+        <!-- 权限 -->   
+     <div id="container2">
+      <div class="row-fluid ">
+        <div class="span12 box gradient ">
+          <div class="title">
+           <!-- <h2>
+            <i class=" icon-bar-chart"></i><span>Complex table with checkboxes and controls</span>
+            </h2>-->
+          </div>
+          <!-- End .title -->
+          <div class="content top">
+            <table id="datatable_example" class="responsive table table-striped table-bordered" style="width:100%;margin-bottom:0; ">
+            <thead>
+            <tr>
+              <th class="no_sort">
+           ID
+              </th>
+             <th class="no_sort to_hide_phone">
+     后台身份
+              </th>
+             <th class="no_sort to_hide_phone">
+              权限等级(0最高)
+              </th>
+              <th class="ms no_sort ">
+              操作
+              </th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="cpower_list" id="vo">
+            <tr>
+              <td>
+                {$vo.id}
+              </td>
+              <td class="to_hide_phone">
+                <div class="row-fluid">
+                {$vo.name}
+                </div>
+              </td>
+               <td class="to_hide_phone">
+               {$vo.rank}
+              </td>
+              <td class="ms">
+                <div class="btn-group1">
+                 <php>if($vo["rank"]==0){echo "系统管理员拥有系统最高权限,不需要人为配置!";}else{</php> <a target="_blank" href="{:U("ConfigAdmin/quanxian_module")}?id={$vo.id}"><button class="btn btn-success" data-placement="top" >配置模块权限</button></a><php>}</php>
+                 <php>if($vo["rank"]==0){echo "";}else{</php> <a target="_blank" href="{:U("ConfigAdmin/quanxian_news")}?id={$vo.id}"><button class="btn btn-success" data-placement="top" >配置单页和新闻权限</button></a><php>}</php>
+                 <php>if($vo["rank"]==0){echo "";}else{</php> <a target="_blank" href="{:U("ConfigAdmin/quanxian_product")}?id={$vo.id}"><button class="btn btn-success" data-placement="top" >配置产品(普通、高级、其他自定义)权限</button></a><php>}</php>
+                </div>
+              </td>
+            </tr>
+            </volist>
+            
+            </tbody>
+            </table>
+            <!-- <div class="row-fluid control-group">
+              <div class="pull-left span6" action="#">
+              </div>
+              <div class="span6">
+                <div class="pagination pull-right ">
+                  <ul>
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Next</a></li>
+                  </ul>
+                </div> </div>
+              </div>-->
+            </div>
+            <!-- End row-fluid -->
+          </div>
+          <!-- End .content -->
+        </div>
+        </div>
+        
+        <!-- 权限 -->    
+        
+        </div>                            
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
            </div>
         </div> <!-- End .content -->
     </div><!-- End .span6 .box -->
@@ -358,9 +452,9 @@
     });
     </script>
 <script type='text/javascript'>
-    $(window).load(function() {
-     $('#loading').fadeOut();
-    });
+   // $(window).load(function() {
+    // $('#loading').fadeOut();
+  //  });
 
  $(document).ready(function() {
       $('body').css('display', 'none');

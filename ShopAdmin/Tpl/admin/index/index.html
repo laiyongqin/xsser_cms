@@ -22,9 +22,9 @@
       <![endif]-->
 </head>
 <body>
-<div id="loading">
+<!--<div id="loading">
   <img src="../Public/img/ajax-loader.gif">
-</div>
+</div>-->
 <div id="responsive_part">
     <div class="logo">
       <a href="../Public/index.html"></a>
@@ -230,6 +230,92 @@
 
       </div>
       <!-- End .row-fluid -->
+      
+      
+      
+      
+      
+   <div class="row-fluid">
+        <div class="span12">
+          <div class="box gradient">
+            <div class="title">
+              <h4>
+              <i class="icon-globe"></i><span>组件支持检测</span>
+              </h4>
+            </div>
+            <!-- End .title -->
+            <div class="content">
+              <table id="datatable_example" class="responsive table table-striped" style="width:100%;height:300px;margin-bottom:0; ">
+              <thead>
+<php>
+$YES='<span style="color: #008000; font-weight : bold;">Yes</span>';
+$NO='<span style="color: #ff0000; font-weight : bold;">No</span>';
+function get_gd_info($name) { $gd_info = gd_info(); return $gd_info[$name]; }
+
+</php>
+
+              <tr>
+                <th class="ue">
+                  值项
+                </th>
+                <th class="ms no_sort ">
+                 <span style="float: left;"> 结果</span>
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                 MySQL支持
+                </td>
+                <td class="ms">
+                 <span style="float: left;"> <php>echo function_exists('mysql_close') ? $YES.' / client lib version '.mysql_get_client_info() : $NO</php></span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                GD library库
+                </td>
+                <td class="ms">
+                 <span style="float: left;"> <php>echo function_exists('gd_info') ? $YES.' / '.get_gd_info('GD Version') : $NO</php></span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                fsockopen函数
+                </td>
+                <td class="ms">
+                 <span style="float: left;"> <php>echo function_exists('fsockopen') ? $YES : $NO</php></span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                curl库
+                </td>
+                <td class="ms">
+                 <span style="float: left;"> <php>echo function_exists('curl_init') ? $YES : $NO</php></span>
+                </td>
+              </tr>
+      
+
+
+
+
+
+              </tbody>
+              </table>
+            </div>
+            <!-- End .content -->
+          </div>
+          <!-- End .box -->
+        </div>
+        <!-- End .span8 -->
+
+      </div>
+      
+      
+      
+      
 
     </div>
     <!-- End #container -->
@@ -275,9 +361,9 @@
 <script src="../Public/js/scripts.js"></script>
 <script language="javascript" type="text/javascript" src="../Public/js/jnavigate.jquery.min.js"></script>
 <script type='text/javascript'>
-    $(window).load(function() {
-     $('#loading').fadeOut();
-    });
+//$(window).load(function() {
+//$('#loading').fadeOut();
+//});
       $(document).ready(function() {
       $('body').css('display', 'none');
       $('body').fadeIn(500);

@@ -1,8 +1,12 @@
 <?php
 class ToolsloginAction extends BaseAction {
+		
+	public $c_letf_number = 7;
 	
-	//======================
 	public function index() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		
 		$Model= M("Info");
         import('@.ORG.Page');// 导入分页类
         $condition["type_id"]=1;
@@ -27,7 +31,7 @@ class ToolsloginAction extends BaseAction {
         $this->assign("thislist",$list);// 赋值数据集
         
 
-		$c_letf_number=9;
+		$c_letf_number=7;
 		$this->assign("c_letf_number",$c_letf_number);
 		$this->display('tools/login/index'); //输出页面模板
 	}

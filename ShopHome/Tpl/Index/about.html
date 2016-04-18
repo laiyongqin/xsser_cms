@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$about_type.type_name}</title>
+<meta content="{$about_type.keyword}" name="keywords" />
+<meta content="{$about_type.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="../Public/css/style.css">
+<link rel="stylesheet" type="text/css" href="../Public/css/colorbox.css">
+<script src="../Public/js/jquery-1.9.1.min.js"></script>
+<script src="../Public/js/jquery.SuperSlide.js"></script>
+<script src="../Public/js/jquery.colorbox-min.js"></script>
+<script src="../Public/js/jqcode.js"></script>
+</head>
+<body>
+<include file="kj_top" />
+<div id="aboutbanner"></div>
+<div id="main">
+	<div class="about cl">
+		<div class="aboutbox">
+			<h2>公司简介</h2>
+			<div class="aboutcon">
+{$about.news_content|htmlspecialchars_decode}
+				<div class="aboutpic"><img src="../Public/images/aboutpic.jpg" height="454" width="930" alt=""></div>
+			</div>
+		</div>
+		<div class="abouttitle"><img src="../Public/images/abouttitle.png" height="285" width="130" alt=""></div>
+	</div>
+	<div class="casebox">
+		<div class="casecon">
+			<h2>施工现场图片</h2>
+			<div class="caseroll">
+				<div class="bd">
+					<ul>
+<volist name="xianchanglist" id="vo">
+						<li>
+							<div class="pic"><a class="zhanshi1" href="{$vo['product_pic_s']}" rel='group2'><img src="{$vo['product_pic_s']}" height="196" width="265" alt="{$vo['product_title']}"></a></div>
+							<h5><a class="zhanshi1" href="{$vo['product_pic_s']}" rel='group2' href2="<php>echo U('index/anli_show',array('id'=>$vo['id']));</php>">{$vo['product_title']}</a></h5>
+						</li>
+</volist>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jgbox">
+		<h2>竣工工程照片</h2>
+		<div class="jgcon">
+			<div class="jgtitle cl">
+			<php>$temp_11=1;</php>
+			<volist name="jungonglist1" id="vo">
+				<a class="zhanshi" href="{$vo['product_pic_s']}"><img src="{$vo['product_pic_s']}" class="<php>echo $temp_11==1?'fl':'fr';</php>" rel='group1' height="220" width="372" title="{$vo['product_title']}"></a>
+			<php>$temp_11++;</php>
+			</volist>
+			</div>
+			<div class="jgbig">
+				<ul class="cl">
+				<volist name="jungonglist2" id="vo">
+					<li><a class="zhanshi" href="{$vo['product_pic_s']}"><img src="{$vo['product_pic_s']}" rel='group1'  height="277" width="372" title="{$vo['product_title']}"><span class="plus"></span></a></li>
+				</volist>
+				</ul>
+			</div>
+		</div>
+	</div>
+<include file="kj_mbot" />
+</div>
+<include file="kj_foot" />
+    <script>
+        $("#t3").addClass("current");
+    </script>
+    <script>
+    $(document).ready(function() {
+    	$(".zhanshi").colorbox({rel:'group1'});
+    	$(".zhanshi1").colorbox({rel:'group2'});
+    });
+    </script>
+    <SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=9713827&sort=0 ></SCRIPT></body>
+
+</body>
+</html>

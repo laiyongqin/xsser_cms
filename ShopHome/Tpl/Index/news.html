@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$mymodualNtype.type_name}</title>
+<meta content="{$mymodualNtype.keyword}" name="keywords" />
+<meta content="{$mymodualNtype.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="../Public/css/style.css">
+<script src="../Public/js/jquery-1.9.1.min.js"></script>
+<script src="../Public/js/jquery.SuperSlide.js"></script>
+<script src="../Public/js/jqcode.js"></script>
+</head>
+<body>
+<include file="kj_top" />
+<div id="main">
+	<div class="news">
+		<div class="newsnav">
+			<ul class="cl">
+				<li <php>echo $type_id==143?"class=\"current\"":"";</php> ><a href="<php>echo U('index/news',array('type_id'=>143));</php>">公司新闻</a></li>
+				<li <php>echo $type_id==144?"class=\"current\"":"";</php> ><a href="<php>echo U('index/news',array('type_id'=>144));</php>">行业资讯</a></li>
+				<li <php>echo $type_id==145?"class=\"current\"":"";</php>><a href="<php>echo U('index/news',array('type_id'=>145));</php>">技术支持</a></li>
+			</ul>
+		</div>
+		<div class="newscon">
+			<ul class="newslist">
+<volist name="thislist" id="vo" > 
+				<li class="cl">
+					<div class="npic"><a href="<php>echo U('index/news_show',array('id'=>$vo['id']));</php>"><img src="{$vo.product_pic_s}" height="216" width="341" alt="{$vo.product_title }"></a></div>
+					<div class="ninfo">
+						<h5><a href="<php>echo U('index/news_show',array('id'=>$vo['id']));</php>">{$vo.product_title|msubstr=0,38,"utf-8",true} </a></h5>
+						<p>{$vo.param|msubstr=0,214,"utf-8",true}</p>
+						<div class="vmore"><a href="<php>echo U('index/news_show',array('id'=>$vo['id']));</php>">查看详情</a></div>
+					</div>
+				</li>
+</volist>
+			</ul>
+			
+<center>
+<div  class="custompage" >
+{$page}
+</div>
+</center>
+<style>
+.custompage{ width:100%; margin:0 auto; text-align:center;}
+.custompage  span{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:20px; height:20px; line-height:20px;}
+.custompage  span.current{display:inline-block;border:1px solid #ddd;font-weight:bold;text-align:center;padding:3px; margin:5px; width:20px; height:20px; line-height:20px;}
+.custompage  a.num{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:20px; height:20px; line-height:20px;}
+.custompage  a.next{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:30px; height:20px; line-height:20px;}
+.custompage  a.prev{display:inline-block;border:1px solid #ddd;text-align:center;padding:3px; margin:5px; width:30px; height:20px; line-height:20px;}
+.custompage  a:hover {1background-color: #363636;1color: #ffffff;}
+.custompage  a.current {1background-color: #BF1F1F;1color: #ffffff;}
+</style>
+<br><br>
+			
+		</div>
+	</div>
+<include file="kj_mbot" />
+</div>
+<include file="kj_foot" />
+    <script>
+        $("#t6").addClass("current");
+    </script>
+    <SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=9713827&sort=0 ></SCRIPT></body>
+
+</body>
+</html>

@@ -17,7 +17,7 @@ function smtp_mail($subject, $body){
     $mail->Host = "smtp.qq.com";   // SMTP servers    
     $mail->SMTPAuth = true;           // turn on SMTP authentication    
     $mail->Username = "971811662@qq.com";     // SMTP username  注意：普通邮件认证不需要加 @域名  这里是我的163邮箱
-    $mail->Password = "WZQ526879193"; // SMTP password    在这里输入邮箱的密码
+    $mail->Password = "WZQ52687919311111"; // SMTP password    在这里输入邮箱的密码
     $mail->From = "971811662@qq.com";      // 发件人邮箱    
     $mail->FromName = "vip定单".$_GET['UserName'];  // 发件人    
     $mail->CharSet = "UTF-8";   // 这里指定字符集！    指定UTF-8后邮件的标题和发件人等等不会乱码，如果是GB2312标题会乱码

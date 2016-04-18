@@ -23,9 +23,9 @@
     <![endif]-->
 </head>
 <body>
-<div id="loading">
+<!--<div id="loading">
   <img src="../Public/img/ajax-loader.gif">
-</div>
+</div>-->
 <div id="responsive_part">
     <div class="logo">
       <a href="index.html"></a> 
@@ -158,10 +158,10 @@
               <th class="no_sort">
            显示
               </th>
-             <th  class="no_sort" style="width: 188px;">
+             <th  class="no_sort" style='width: 188px;word-break: break-all;word-wrap: break-word;'>
              属性显示名
               </th>
-              <th class="no_sort" style="width: 188px;">
+              <th class="no_sort" style='width: 188px;word-break: break-all;word-wrap: break-word;'>
              属性类型
               </th>
               <th class="no_sort">
@@ -194,10 +194,10 @@
               <td>
                 <neq name="vo.isshow" value="0">显示</neq><neq name="vo.isshow" value="1">不显示</neq>
               </td>
-              <td  style="width: 188px;">
+              <td  style='width: 188px;word-break: break-all;word-wrap: break-word;'>
                     {$vo.shuxing_name}
               </td>
-              <td style="width: 188px;">
+              <td style='width: 188px;word-break: break-all;word-wrap: break-word;'>
                     {$vo.shuxing_type}
               </td>
               <td class="ms">
@@ -325,7 +325,7 @@
         var img = '';
 		$('#file_upload_product_type').uploadify({
 	        	'swf'      : '__PUBLIC__/uploadify/uploadify.swf',
-	        	'uploader' : '{:U("Index/uploadimg")}',   //上传的方法
+	        	'uploader' : '{:U("Open/uploadimg")}',   //上传的方法
 	        	'buttonText' : '图片上传',
 	        	'onUploadSuccess' : function(file, data, response) {
 	        	 var jsonimg=eval('('+data+')');
@@ -473,9 +473,9 @@
     });
     </script>
 <script type='text/javascript'>
-    $(window).load(function() {
-     $('#loading').fadeOut();
-    });
+//$(window).load(function() {
+//$('#loading').fadeOut();
+//});
 
  $(document).ready(function() {
       $('body').css('display', 'none');

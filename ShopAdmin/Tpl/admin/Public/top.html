@@ -21,11 +21,11 @@
         </li>
       </ul>-->
       <ul class="nav nav_menu">
-        <li class="dropdown"> <a class="dropdown-toggle administrator" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"> <span class="icon"><img src="../Public/img/menu_top/profile-avatar.png"></span><span class="title">当前登录账户:<php>echo $_SESSION["admin_name"];</php></span></a>
+        <li class="dropdown"> <a class="dropdown-toggle administrator" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#@"> <span class="icon"><img src="../Public/img/menu_top/profile-avatar.png"></span><span class="title">当前登录账户:<php>echo $_SESSION["admin_name"];</php>({$_SESSION.admin_power|getadmin_power_name})</span></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <!-- <li><a href="#"><i class=" icon-user"></i> My Profile</a></li>-->
             <li><a href="{:U("ConfigAdmin/update_info")}?id=<php>echo $_SESSION["admin_id"];</php>"><i class=" icon-cog"></i>设置</a></li>
-            <li><a href="{:U("Login/logout")}"><i class=" icon-unlock"></i>退出</a></li>
+            <li><a href="{:U("Login/logout")}"><i class=" icon-unlock"></i>退出 </a></li>
             <!-- <li><a href="#"><i class=" icon-flag"></i>Help</a></li>-->
           </ul>
         </li>

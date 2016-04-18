@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$about_type.type_name}</title>
+<meta content="{$about_type.keyword}" name="keywords" />
+<meta content="{$about_type.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="../Public/css/style.css">
+<script src="../Public/js/jquery-1.9.1.min.js"></script>
+<script src="../Public/js/jquery.SuperSlide.js"></script>
+<script src="../Public/js/jqcode.js"></script>
+</head>
+<body>
+<include file="kj_top" />
+<div id="main">
+	<div class="map">
+	<!--<img src="../Public/images/map.jpg" height="390" width="1140" alt="">-->
+	<iframe src="/map.html" width="1140" height="390" frameborder="0" scrolling="no"></iframe>
+	</div>
+	<div class="contact">
+		<div class="formbox">
+			<ul>
+				<li><input type="text" class="ftxt" placeholder="姓名" id="zb_name"></li>
+				<li><input type="text" class="ftxt" placeholder="电话" id="zb_tel"></li>
+				<li><textarea  id="zb_liuyan" class="tarea" placeholder="请留言"></textarea></li>
+				<li><input type="button" value="提交" class="fbtn" id="send_ajax2"></li>
+<script language="javascript"> 
+$(document).ready(function (){
+//$.post()方式：
+$('#send_ajax2').click(function (){
+    $.post(
+      '{:U("index/dingzhi_post")}',
+      {
+    	zb_name:$('#zb_name').val(),
+    	zb_tel:$('#zb_tel').val(),
+    	zb_liuyan:$('#zb_liuyan').val()
+      },function (data) //回传函数
+       {
+          //var myjson='';
+          //eval('myjson=' + data + ';');
+          //alert(myjson.info);
+          var obj = eval(data);
+          alert(obj.info);
+          $('#zb_name').val("");
+          $('#zb_tel').val("");
+          $('#zb_liuyan').val("");
+        }
+    );
+   });
+ 
+})
+</script>
+			</ul>
+		</div>
+		<div class="contactcon">
+			<h5>青岛冰岩制冷设备有限公司</h5>
+			<div class="contactinfo">
+				<p>公司地址：青岛市城阳区正阳路南侧</p>
+				<p>传真：0532-82525158</p>
+				<p>邮箱：bingyanzhileng@sina.com</p>
+                <p>手机： <span style="color:#F00; font-size:18px;">18669860589</span></p>
+			</div>
+			<div class="tel">全国服务热线：<strong>400-068-9681</strong></div>
+			<div class="ewm">
+				<img src="../Public/images/ewm.png" height="167" width="167" alt="">
+				<p>扫描二维码<br>关注我们！<br>更多惊喜等你来拿……</p>
+			</div>
+		</div>
+	</div>
+<include file="kj_mbot" />
+</div>
+<include file="kj_foot" />
+    <script>
+        $("#t7").addClass("current");
+    </script>
+    
+<SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=9713827&sort=0 ></SCRIPT></body>
+
+</body>
+</html>

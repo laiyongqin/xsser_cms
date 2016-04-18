@@ -1,24 +1,4 @@
-/*
-Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50051
-Source Host           : localhost:3306
-Source Database       : xsser_cms
-
-Target Server Type    : MYSQL
-Target Server Version : 50051
-File Encoding         : 65001
-
-Date: 2015-08-09 16:41:55
-*/
-
-SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for `xsser_address`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_address`;
 CREATE TABLE `xsser_address` (
   `id` bigint(20) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
@@ -29,16 +9,8 @@ CREATE TABLE `xsser_address` (
   `bak1` varchar(500) NOT NULL,
   `bak` varchar(500) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_address
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_admin`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_admin`;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+insert into `xsser_address`(`id`,`user_id`,`changyong`,`shouhuo_name`,`shouhuo_tel`,`shouhuo_address`,`bak1`,`bak`) values('1','1','1','王晓明','15098612360','山东省烟台市芝罘区只楚某某西街12号','','');
 CREATE TABLE `xsser_admin` (
   `id` bigint(20) NOT NULL auto_increment,
   `admin_user` varchar(50) NOT NULL COMMENT '用户名',
@@ -47,19 +19,12 @@ CREATE TABLE `xsser_admin` (
   `login_ip` varchar(30) NOT NULL COMMENT '登录ip',
   `login_time` bigint(20) unsigned NOT NULL default '0' COMMENT '登录时间',
   `admin_rank` tinyint(4) unsigned NOT NULL default '1' COMMENT '管理员等级',
-  `admin_power` varchar(300) NOT NULL COMMENT '保留字段，权限',
+  `admin_power` tinyint(4) NOT NULL COMMENT '权限',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_admin
--- ----------------------------
-INSERT INTO `xsser_admin` VALUES ('5', 'wzq', 'f34a1acaad91e14200247aa2c68c6118', '793d91e2-ef0d-0ab3-405f-b0aa0be6f094', '11.85.63.53', '1412847387', '0', '');
-
--- ----------------------------
--- Table structure for `xsser_basket`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_basket`;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+insert into `xsser_admin`(`id`,`admin_user`,`admin_pass`,`admin_uuid`,`login_ip`,`login_time`,`admin_rank`,`admin_power`) values('1','wzq','f34a1acaad91e14200247aa2c68c6118','793d91e2-ef0d-0ab3-405f-b0aa0be6f094','11.85.63.53','1412847387','0','1');
+insert into `xsser_admin`(`id`,`admin_user`,`admin_pass`,`admin_uuid`,`login_ip`,`login_time`,`admin_rank`,`admin_power`) values('7','weihu','158dc2d53366fd1fddf958e9a78d2f91','639583db-d653-0987-666e-863acc2d26cd','127.0.0.1','1460348170','1','3');
+insert into `xsser_admin`(`id`,`admin_user`,`admin_pass`,`admin_uuid`,`login_ip`,`login_time`,`admin_rank`,`admin_power`) values('8','guanli','b58f80798fe58a9595f308273e3fdaaf','ebb16ed3-3ef3-89c4-afb2-a20642a310e3','127.0.0.1','1460529247','1','2');
 CREATE TABLE `xsser_basket` (
   `id` bigint(20) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
@@ -70,15 +35,6 @@ CREATE TABLE `xsser_basket` (
   `bak2` varchar(800) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_basket
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_conf`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_conf`;
 CREATE TABLE `xsser_conf` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `conf` varchar(60) NOT NULL COMMENT '键',
@@ -87,23 +43,14 @@ CREATE TABLE `xsser_conf` (
   `bak2` varchar(500) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_conf
--- ----------------------------
-INSERT INTO `xsser_conf` VALUES ('4', '网站标题', 'XSSER_CMS系统欢迎您的使用!', '', '');
-INSERT INTO `xsser_conf` VALUES ('5', '网站关键词', 'XSSER_CMS系统欢迎您的使用!', '', '');
-INSERT INTO `xsser_conf` VALUES ('6', '网站描述', 'XSSER_CMS系统欢迎您的使用!', '', '');
-INSERT INTO `xsser_conf` VALUES ('7', '发件邮箱地址', '971811662@qq.com', '', '');
-INSERT INTO `xsser_conf` VALUES ('8', '邮箱SMTP服务器', 'smtp.qq.com', '', '');
-INSERT INTO `xsser_conf` VALUES ('9', '邮箱登录帐号', '971811662@qq.com', '', '');
-INSERT INTO `xsser_conf` VALUES ('10', '邮箱密码', '123456789', '', '');
-INSERT INTO `xsser_conf` VALUES ('11', '邮箱收件箱', '969333313@qq.com', '', '');
-
--- ----------------------------
--- Table structure for `xsser_coupon`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_coupon`;
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('4','网站标题','青岛XXX有限公司','','');
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('5','网站关键词','青岛XXX有限公司','','');
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('6','网站描述','青岛XXX有限公司','','');
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('7','发件邮箱地址','xsser@xsser.cc','','');
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('8','邮箱SMTP服务器','smtp.qq.com','','');
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('9','邮箱登录帐号','xsser@xsser.cc','','');
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('10','邮箱密码','wzq11111','','');
+insert into `xsser_conf`(`id`,`conf`,`value`,`bak1`,`bak2`) values('11','邮箱收件箱','969333313@qq.com','','');
 CREATE TABLE `xsser_coupon` (
   `id` bigint(20) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL COMMENT '优惠卷名字',
@@ -114,16 +61,8 @@ CREATE TABLE `xsser_coupon` (
   `bak1` varchar(800) NOT NULL,
   `bak2` varchar(800) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_coupon
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_coupon_give`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_coupon_give`;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+insert into `xsser_coupon`(`id`,`name`,`price`,`description`,`ftime`,`gtime`,`bak1`,`bak2`) values('1','商场上线全场订单减10元','10','商场上线全场订单减10元','1460044800','1485964800','','');
 CREATE TABLE `xsser_coupon_give` (
   `id` bigint(20) NOT NULL auto_increment,
   `ftime` int(20) NOT NULL COMMENT '发放时间',
@@ -134,16 +73,9 @@ CREATE TABLE `xsser_coupon_give` (
   `bak1` varchar(800) NOT NULL,
   `bak2` varchar(800) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_coupon_give
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_goumai`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_goumai`;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+insert into `xsser_coupon_give`(`id`,`ftime`,`user_id`,`admin_id`,`coupon_id`,`is_use`,`bak1`,`bak2`) values('1','1460102016','1','5','1','0','','');
+insert into `xsser_coupon_give`(`id`,`ftime`,`user_id`,`admin_id`,`coupon_id`,`is_use`,`bak1`,`bak2`) values('2','1460439611','1','5','1','0','','');
 CREATE TABLE `xsser_goumai` (
   `id` bigint(20) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL COMMENT '用户id',
@@ -155,15 +87,6 @@ CREATE TABLE `xsser_goumai` (
   `bak2` varchar(800) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_goumai
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_info`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_info`;
 CREATE TABLE `xsser_info` (
   `id` bigint(20) NOT NULL auto_increment,
   `type_id` int(11) default NULL COMMENT '类型ID',
@@ -174,16 +97,18 @@ CREATE TABLE `xsser_info` (
   `info3` varchar(500) NOT NULL,
   `info4` varchar(500) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_info
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_jifen`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_jifen`;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('1','1','1460431056','127.0.0.1','登录成功! 帐号:wzq','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('2','1','1460461583','127.0.0.1','登录成功! 帐号:wzq','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('3','1','1460461721','127.0.0.1','登录成功! 帐号:weihu','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('4','1','1460462096','127.0.0.1','登录成功! 帐号:weihu','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('5','1','1460462172','127.0.0.1','登录成功! 帐号:weihu','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('6','1','1460512111','127.0.0.1','登录成功! 帐号:wzq','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('7','1','1460512786','127.0.0.1','登录成功! 帐号:wzq','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('8','1','1460512828','127.0.0.1','登录成功! 帐号:weihu','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('9','1','1460533064','127.0.0.1','登录成功! 帐号:guanli','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('10','1','1460533267','127.0.0.1','登录成功! 帐号:weihu','','','');
+insert into `xsser_info`(`id`,`type_id`,`time`,`ip`,`info1`,`info2`,`info3`,`info4`) values('11','1','1460535581','127.0.0.1','登录成功! 帐号:wzq','','','');
 CREATE TABLE `xsser_jifen` (
   `id` bigint(20) NOT NULL auto_increment,
   `time` int(20) NOT NULL COMMENT '操作时间',
@@ -192,16 +117,8 @@ CREATE TABLE `xsser_jifen` (
   `jilu` varchar(255) NOT NULL COMMENT '记录描述',
   `bak1` varchar(500) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_jifen
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_modual`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_modual`;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+insert into `xsser_jifen`(`id`,`time`,`user_id`,`admin_id`,`jilu`,`bak1`) values('1','1460101993','1','5','执行了(增加10分)操作','');
 CREATE TABLE `xsser_modual` (
   `id` int(5) unsigned NOT NULL auto_increment,
   `modual_type` tinyint(3) unsigned NOT NULL default '0' COMMENT '是否是创建数据表类型 1是 0不是',
@@ -213,21 +130,28 @@ CREATE TABLE `xsser_modual` (
   `active` tinyint(7) unsigned NOT NULL default '1' COMMENT '是否审核',
   `show_level` smallint(10) unsigned NOT NULL default '500' COMMENT '显示顺序',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_modual
--- ----------------------------
-INSERT INTO `xsser_modual` VALUES ('41', '0', '', '全功能测试', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '500');
-INSERT INTO `xsser_modual` VALUES ('42', '0', '', '招聘人才', '姓名|个人简单介绍|工作经历|上传简历', 'text|area1|area2|upload', '', '1', '500');
-INSERT INTO `xsser_modual` VALUES ('54', '0', 'new_modual_', '默认', '描述', 'area1', '', '1', '500');
-INSERT INTO `xsser_modual` VALUES ('55', '0', 'new_modual_', '友情链接', '图片|链接地址', 'upload|text', '', '1', '500');
-INSERT INTO `xsser_modual` VALUES ('56', '1', 'new_modual_ceshi', '高级全功能测试', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', 'text|area1|area2|upload|pic|radio', '1', '500');
-
--- ----------------------------
--- Table structure for `xsser_news`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_news`;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('41','0','','全功能测试','普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框','text|area1|area2|upload|pic|radio','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('42','0','','招聘人才','姓名|个人简单介绍|工作经历|上传简历','text|area1|area2|upload','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('54','0','new_modual_','默认','描述','area1','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('55','0','new_modual_','合作伙伴','图片|链接地址','upload|text','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('56','1','new_modual_ceshi','高级全功能测试','普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框','text|area1|area2|upload|pic|radio','text|area1|area2|upload|pic|radio','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('57','0','new_modual_','网站定制','姓名|联系方式|所属行业|网站色调|周期要求|网站预算|网站类型|补充说明','text|text|text|text|text|text|text|area1','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('58','0','new_modual_','首页轮播图片','小图片|大图片','upload|upload','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('59','0','new_modual_','万佳网站定制','姓名|联系方式|所属行业|网站主色调|周期要求|网站预算|网站类型|补充要求','text|text|text|text|text|text|area1|area1','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('60','0','new_modual_','客户见证','公司简介|客户见证','text|area1','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('61','0','new_modual_','在线留言','姓名|电话|留言','text|text|area1','','1','500');
+insert into `xsser_modual`(`id`,`modual_type`,`database_table`,`modual_name`,`shuxing_name`,`shuxing_type`,`table_field`,`active`,`show_level`) values('62','0','new_modual_','制冷设备产品','产品型号|产品范围|产品简介|产品特点|应用领域','text|area1|area2|area2|area2','','1','500');
+CREATE TABLE `xsser_new_modual_ceshi` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `text` varchar(500) default NULL,
+  `area1` varchar(800) default NULL,
+  `area2` text,
+  `upload` varchar(500) default NULL,
+  `pic` varchar(500) default NULL,
+  `radio` tinyint(3) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 CREATE TABLE `xsser_news` (
   `id` bigint(10) unsigned NOT NULL auto_increment,
   `type_id` int(5) unsigned NOT NULL default '0' COMMENT '类型ID',
@@ -249,23 +173,10 @@ CREATE TABLE `xsser_news` (
   `html_page` varchar(100) NOT NULL,
   `bak1` varchar(500) NOT NULL,
   `bak2` varchar(500) NOT NULL,
+  `ip` varchar(100) default NULL,
   PRIMARY KEY  (`id`),
   KEY `news_title` (`news_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_news
--- ----------------------------
-INSERT INTO `xsser_news` VALUES ('57', '25', '5', '公司简介', '&lt;p&gt;我们的公司简介&lt;/p&gt;', '1', '', '1439049600', '1439104119', '0', '0', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news` VALUES ('58', '30', '5', '我们的团队', '&lt;p&gt;我们的团队介绍&lt;/p&gt;', '1', '', '1439049600', '1439104144', '0', '0', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news` VALUES ('59', '26', '5', '联系我们', '&lt;p&gt;联系我们的内容&lt;/p&gt;', '1', '', '1439049600', '1439104160', '0', '0', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news` VALUES ('60', '28', '5', '行业新闻的一条数据', '&lt;p&gt;行业新闻的一条数据内容&lt;/p&gt;', '1', 'wzq', '1439104305', '1439104305', '0', '0', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news` VALUES ('61', '29', '5', '公司新闻的一条数据', '&lt;p&gt;公司新闻的一条数据&lt;/p&gt;', '1', 'wzq', '1439104336', '1439104336', '0', '0', '1', '500', '', '', '', '', '', '', '');
-
--- ----------------------------
--- Table structure for `xsser_news_type`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_news_type`;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 CREATE TABLE `xsser_news_type` (
   `id` smallint(6) unsigned NOT NULL auto_increment,
   `type_name` varchar(100) NOT NULL COMMENT '类型名',
@@ -283,42 +194,7 @@ CREATE TABLE `xsser_news_type` (
   `bak1` varchar(500) NOT NULL,
   `bak2` varchar(500) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_news_type
--- ----------------------------
-INSERT INTO `xsser_news_type` VALUES ('25', '公司简介', '0', '1', '0', '1', '100', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news_type` VALUES ('26', '联系我们', '0', '1', '0', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news_type` VALUES ('27', '新闻中心', '1', '1', '0', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news_type` VALUES ('28', '行业新闻', '1', '2', '27', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news_type` VALUES ('29', '公司新闻', '1', '2', '27', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_news_type` VALUES ('30', '我们的团队', '0', '1', '0', '1', '200', '1', '', '', '', '', '', '', '');
-
--- ----------------------------
--- Table structure for `xsser_new_modual_ceshi`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_new_modual_ceshi`;
-CREATE TABLE `xsser_new_modual_ceshi` (
-  `id` bigint(20) NOT NULL auto_increment,
-  `text` varchar(500) default NULL,
-  `area1` varchar(800) default NULL,
-  `area2` text,
-  `upload` varchar(500) default NULL,
-  `pic` varchar(500) default NULL,
-  `radio` tinyint(3) default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_new_modual_ceshi
--- ----------------------------
-INSERT INTO `xsser_new_modual_ceshi` VALUES ('1', '普通文本输入框', '普通小型描述框', '<p><span style=\"color: rgb(126, 131, 139); font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; text-align: right; background-color: rgb(249, 249, 249);\">富文本编辑器描述框</span></p>', '上传图片，文件', '上传图片', '0');
-
--- ----------------------------
--- Table structure for `xsser_order`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_order`;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 CREATE TABLE `xsser_order` (
   `id` bigint(11) NOT NULL auto_increment,
   `order_number` varchar(255) NOT NULL COMMENT '订单号',
@@ -332,15 +208,6 @@ CREATE TABLE `xsser_order` (
   `bak2` varchar(800) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_order
--- ----------------------------
-
--- ----------------------------
--- Table structure for `xsser_product`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_product`;
 CREATE TABLE `xsser_product` (
   `id` bigint(10) unsigned NOT NULL auto_increment,
   `type_id` int(6) NOT NULL default '0' COMMENT '类型ID',
@@ -366,26 +233,11 @@ CREATE TABLE `xsser_product` (
   `html_page` varchar(100) NOT NULL,
   `bak1` varchar(500) NOT NULL,
   `bak2` varchar(500) NOT NULL,
+  `ip` varchar(100) default NULL COMMENT '发布的IP',
   PRIMARY KEY  (`id`),
   KEY `product_title` (`product_title`),
   KEY `type_id` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_product
--- ----------------------------
-INSERT INTO `xsser_product` VALUES ('61', '107', '5', '客服人员', '/Uploads/2015_08_09/55c6fdca80ae8.jpg', '/Uploads/2015_08_09/55c6fdd4d862f.jpg', '', '1', 'wzq', '1439049600', '1439104586', '0', '0', '姓名|个人简单介绍|<p>工作经历</p>|/Uploads/2015_08_09/55c6fe41ca0aa.zip', '', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product` VALUES ('62', '124', '5', '百度', '', '', '', '1', '', '1439104868', '1439104868', '0', '0', '/Uploads/2015_08_09/55c6ff469f0dd.jpg|https://www.baidu.com', '', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product` VALUES ('63', '111', '5', '新款牛仔裤', '/Uploads/2015_08_09/55c700166798d.jpg', '/Uploads/2015_08_09/55c7001fb08a8.jpg', '&lt;p&gt;内容&lt;/p&gt;', '1', 'wzq', '1439049600', '1439105182', '0', '0', '普通文本输入框|普通小型描述框|<p><span style=\"color: rgb(126, 131, 139); font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; text-align: right; background-color: rgb(249, 249, 249);\">富文本编辑器描述框</span></p>|/Uploads/2015_08_09/55c70037da379.zip|/Uploads/2015_08_09/55c70047885a4.jpg|1', '112', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product` VALUES ('64', '120', '5', '牛排', '/Uploads/2015_08_09/55c701ee3b2da.jpg', '', '&lt;p&gt;49876546&lt;/p&gt;', '1', 'wzq', '1439049600', '1439105549', '0', '0', '1', '', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product` VALUES ('65', '121', '5', '甜点甜点', '', '', '', '1', 'wzq', '1439049600', '1439105668', '0', '0', '2', '', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product` VALUES ('66', '123', '5', '花式面点', '', '', '', '1', 'wzq', '1439049600', '1439105808', '0', '0', '4', '', '1', '500', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product` VALUES ('67', '125', '5', '标题*', '缩略图', '大图', '&lt;p&gt;&lt;span style=&quot;color: rgb(126, 131, 139); font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; text-align: right; background-color: rgb(249, 249, 249);&quot;&gt;内容*&lt;/span&gt;&lt;/p&gt;', '1', 'wzq', '1439049600', '1439106296', '0', '0', '1', '', '1', '500', '', '', '', '', '', '', '');
-
--- ----------------------------
--- Table structure for `xsser_product_type`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_product_type`;
+) ENGINE=InnoDB AUTO_INCREMENT=417 DEFAULT CHARSET=utf8;
 CREATE TABLE `xsser_product_type` (
   `id` int(5) unsigned NOT NULL auto_increment,
   `type_name` varchar(100) NOT NULL COMMENT '类型名',
@@ -408,27 +260,76 @@ CREATE TABLE `xsser_product_type` (
   `bak1` varchar(500) NOT NULL,
   `bak2` varchar(500) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_product_type
--- ----------------------------
-INSERT INTO `xsser_product_type` VALUES ('107', '人才招聘', '1', '1', '0', '42', '', '姓名|个人简单介绍|工作经历|上传简历', 'text|area1|area2|upload', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('108', '产品中心', '2', '1', '0', '41', '', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('109', '衬衫', '2', '2', '108', '41', '', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '20', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('110', '裤子', '2', '2', '108', '41', '', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '10', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('111', '牛仔裤', '2', '3', '110', '41', '', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('112', '卡其裤', '2', '3', '110', '41', '', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('113', '长袖衬衫', '2', '3', '109', '41', '', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('114', '短袖衬衫', '2', '3', '109', '41', '', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('116', '设备展示', '3', '1', '0', '54', '', '描述', 'area1', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('124', '友情链接', '101', '1', '0', '55', '', '图片|链接地址', 'upload|text', '', '1', '500', '1', '', '', '', '', '', '', '');
-INSERT INTO `xsser_product_type` VALUES ('125', '高级产品中心', '8', '1', '0', '56', 'new_modual_ceshi', '普通文本输入框|普通小型描述框|富文本编辑器描述框|上传图片，文件|上传图片|单选框', 'text|area1|area2|upload|pic|radio', 'text|area1|area2|upload|pic|radio', '1', '500', '1', '', '', '', '', '', '', '');
-
--- ----------------------------
--- Table structure for `xsser_reply`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_reply`;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8;
+CREATE TABLE `xsser_quanxian_caozuomodule` (
+  `id` int(11) NOT NULL auto_increment,
+  `power_id` int(11) NOT NULL,
+  `module_id` int(11) NOT NULL,
+  `view` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('13','2','1','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('14','2','2','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('15','2','4','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('16','2','5','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('17','2','8','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('18','2','3','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('19','2','6','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('20','2','9','0');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('21','2','7','0');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('22','3','2','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('23','3','3','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('24','3','4','0');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('25','3','1','1');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('26','3','5','0');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('27','3','7','0');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('28','3','6','0');
+insert into `xsser_quanxian_caozuomodule`(`id`,`power_id`,`module_id`,`view`) values('29','3','9','0');
+CREATE TABLE `xsser_quanxian_caozuon` (
+  `id` int(11) NOT NULL auto_increment,
+  `power_id` int(11) NOT NULL,
+  `nid` int(11) NOT NULL,
+  `add` tinyint(4) NOT NULL default '0',
+  `del` tinyint(4) NOT NULL default '0',
+  `up` tinyint(4) NOT NULL default '0',
+  `select` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+insert into `xsser_quanxian_caozuon`(`id`,`power_id`,`nid`,`add`,`del`,`up`,`select`) values('10','2','30','1','1','1','1');
+insert into `xsser_quanxian_caozuon`(`id`,`power_id`,`nid`,`add`,`del`,`up`,`select`) values('14','3','30','0','0','0','0');
+CREATE TABLE `xsser_quanxian_caozuop` (
+  `id` int(11) NOT NULL auto_increment,
+  `power_id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `add` tinyint(4) NOT NULL default '0',
+  `del` tinyint(4) NOT NULL default '0',
+  `up` tinyint(4) NOT NULL default '0',
+  `select` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+CREATE TABLE `xsser_quanxian_moduletable` (
+  `id` int(11) NOT NULL auto_increment,
+  `module_name` varchar(300) character set utf8 NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('1','单页栏目');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('2','新闻栏目');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('3','产品(普通自定义)栏目');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('4','其他自定义栏目');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('5','产品(高级自定义)栏目');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('6','商城系统');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('7','系统设置与管理');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('8','评论管理');
+insert into `xsser_quanxian_moduletable`(`id`,`module_name`) values('9','工具箱');
+CREATE TABLE `xsser_quanxian_power` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(200) character set utf8 NOT NULL,
+  `rank` tinyint(4) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+insert into `xsser_quanxian_power`(`id`,`name`,`rank`) values('1','系统管理员','0');
+insert into `xsser_quanxian_power`(`id`,`name`,`rank`) values('2','管理员','1');
+insert into `xsser_quanxian_power`(`id`,`name`,`rank`) values('3','维护人员','2');
 CREATE TABLE `xsser_reply` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` bigint(20) default NULL COMMENT '用户ID',
@@ -440,16 +341,7 @@ CREATE TABLE `xsser_reply` (
   `bak1` varchar(1000) character set utf8 collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_reply
--- ----------------------------
-INSERT INTO `xsser_reply` VALUES ('1', '5', '1', '0', 0x31313131313131313131313131313131, '127.0.0.1', '1439107600', '');
-
--- ----------------------------
--- Table structure for `xsser_replyposts`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_replyposts`;
+insert into `xsser_reply`(`id`,`user_id`,`posts_id`,`show`,`content`,`ip`,`time`,`bak1`) values('1','5','1','0','你好哦111','127.0.0.1','1460389754','');
 CREATE TABLE `xsser_replyposts` (
   `id` bigint(20) NOT NULL auto_increment COMMENT 'ID',
   `user_id` bigint(20) default NULL COMMENT '用户ID',
@@ -465,16 +357,7 @@ CREATE TABLE `xsser_replyposts` (
   `bak1` varchar(1000) character set utf8 collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_replyposts
--- ----------------------------
-INSERT INTO `xsser_replyposts` VALUES ('1', '5', '60', '0', '1', 0xE588ABE58786E5A487E58786E5A487E59083E9A5ADE697A9E9A5AD7644465376, '代收代付', '水电费', '佛挡杀佛', '', '0', '');
-
--- ----------------------------
--- Table structure for `xsser_user`
--- ----------------------------
-DROP TABLE IF EXISTS `xsser_user`;
+insert into `xsser_replyposts`(`id`,`user_id`,`posts_id`,`norp`,`show`,`content`,`name`,`email`,`site`,`ip`,`time`,`bak1`) values('1','5','402','1','1','哈哈啊哈哈','张三','email@qq.com','','127.0.0.1','0','');
 CREATE TABLE `xsser_user` (
   `id` bigint(50) NOT NULL auto_increment,
   `uuid` varchar(50) NOT NULL COMMENT 'UUID标识',
@@ -492,8 +375,5 @@ CREATE TABLE `xsser_user` (
   `bak1` varchar(500) NOT NULL,
   `bak2` varchar(500) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of xsser_user
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+insert into `xsser_user`(`id`,`uuid`,`state`,`nname`,`username`,`password`,`sex`,`email`,`jifen`,`address_id`,`face`,`regtime`,`regip`,`bak1`,`bak2`) values('1','392b074c-1d48-464e-5fe2-1db2ecbc98fa','1','小明','tester','c237b899ec4eadf22c96206de4d7d5ed','1','123456789@qq.com','10','0','','1460044800','127.0.0.1','','');
