@@ -142,10 +142,10 @@
               <th class="no_sort">
               模型名字
               </th>
-              <th class="no_sort to_hide_phone">
+              <th  style='width: 250px;word-break: break-all;word-wrap: break-word;'>
                属性显示名字
               </th>
-              <th class="no_sort to_hide_phone">
+              <th  style='width: 250px;word-break: break-all;word-wrap: break-word;'>
              属性对应类型
               </th>
               <th class="ms no_sort ">
@@ -162,10 +162,10 @@
               <td>
                 {$vo.modual_name}
               </td>
-              <td class="to_hide_phone">
+              <td  style='width: 250px;word-break: break-all;word-wrap: break-word;'>
                {$vo.shuxing_name}
               </td>
-              <td class="to_hide_phone">
+              <td  style='width: 250px;word-break: break-all;word-wrap: break-word;'>
                 <div class="row-fluid">
                {$vo.shuxing_type}
                 </div>
@@ -240,16 +240,16 @@
               <th class="no_sort">
               模型名字
               </th>
-              <th class="no_sort to_hide_phone">
+              <th  style='width: 200px;word-break: break-all;word-wrap: break-word;'>
                属性显示名字
               </th>
-              <th class="no_sort to_hide_phone">
+              <th  style='width: 200px;word-break: break-all;word-wrap: break-word;'>
              属性对应类型
               </th>
               <th class="to_hide_phone ue no_sort">
            数据库中表名(高级模型)
               </th>
-              <th class="ue no_sort">
+              <th  style='width: 200px;word-break: break-all;word-wrap: break-word;'>
            表中对应字段(高级模型)
               </th>
               <th class="ms no_sort ">
@@ -265,10 +265,10 @@
               <td>
                 {$vo.modual_name}
               </td>
-              <td class="to_hide_phone">
+              <td  style='width: 200px;word-break: break-all;word-wrap: break-word;'>
                 {$vo.shuxing_name}
               </td>
-              <td class="to_hide_phone">
+              <td  style='width: 200px;word-break: break-all;word-wrap: break-word;'>
                 <div class="row-fluid">
                  {$vo.shuxing_type}
                 </div>
@@ -277,12 +277,13 @@
                 {$vo.database_table}
               </td>
 
-              <td>
+              <td  style='width: 200px;word-break: break-all;word-wrap: break-word;'>
                 {$vo.table_field }
               </td>
               <td class="ms">
                 <div class="btn-group1">
                   <a class="btn btn-small" rel="tooltip" data-placement="left" data-original-title=" edit " href="{:U("ConfigModual/update_info")}?id={$vo.id}"><i class="gicon-edit"></i></a>
+                   <a class="btn btn-small" rel="tooltip" data-placement="left" data-original-title=" 编辑字段中数据 " href="{:U("ConfigModual/update_gaojifield_content")}?id={$vo.id}" target="_blank"><i class="icon-bar-chart"></i></a>
                   <a class="btn btn-inverse btn-small" rel="tooltip" data-placement="bottom" data-original-title="Remove" href="#"  onclick="if(confirm('确认删除吗?')) window.location='{:U("ConfigModual/del")}?id={$vo.id}'"><i class="gicon-remove icon-white"></i></a>
                 </div>
               </td>
@@ -451,25 +452,32 @@
       <td>上传图片，文件</td>
     </tr>
     <tr>
-      <td>pic(加水印等)</td>
-      <td>上传图片</td>
+      <td>pic</td>
+      <td>上传图片(加水印等)</td>
     </tr>
-    <!--<tr>
-      <td>selects</td>
-      <td>选择框</td>
-    </tr>-->
     <tr>
       <td>radio</td>
-      <td>单选框</td>
+      <td>单选框(普通,只有"是"和"否"这两个选项)</td>
     </tr>
-    <!--<tr>
+    <tr>
+      <td>radio2</td>
+      <td>高级复选框(高级模型专属，普通模型只识别为text类型)</td>
+    </tr>
+    <tr>
+      <td>listtype</td>
+      <td>下拉列表(高级模型专属，普通模型只识别为text类型)</td>
+    </tr>
+    <tr>
       <td>checkbox</td>
-      <td>复选框</td>
-    </tr>-->
-    <!--<tr>
-      <td>time</td>
-      <td>时间插件</td>
-    </tr>-->
+      <td>多选框(高级模型专属，普通模型只识别为text类型)</td>
+    </tr>
+    <tr>
+      <td>sqltype</td>
+      <td>SQL类型(高级模型专属，普通模型只识别为text类型)</td>
+    </tr>
+    <tr>
+      <td colspan="2"><font style="color: red;">注意:数据库中表名(高级模型)、表中对应字段(高级模型)尽量使用拼音或英文,且不能重复(也不能是mysql数据库sql语句关键字)，否则可能导致数据库表创建失败！</font></td>
+    </tr>
   </tbody>
 </table>
 

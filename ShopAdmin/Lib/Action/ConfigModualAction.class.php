@@ -121,6 +121,76 @@ class ConfigModualAction extends BaseAction {
 			$this->error ( '数据写入错误' );
 		}
 	}
+	
+	//修改模型
+	public function update_gaojifield_content() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		
+		$Modual = M ( "Modual" );
+		$mymodual = $Modual->find ( $_GET ["id"] );
+		
+		//$pModel = M ( ucfirst ( $mymodual ['database_table'] ) );
+		//$param_array = split ( '[|]', $mymodual ['shuxing_name'] );
+		$param_array_type = split ( '[|]', $mymodual ['shuxing_type'] );
+		$mfclist = null;
+		$param_array_table_field = split ( '[|]', $mymodual ['table_field'] );
+		for($i = 0; $i < count ( $param_array_table_field ); $i ++) {
+			$mfclist [$i] ['field'] = $param_array_table_field [$i];
+			$mfclist [$i] ['type'] = $param_array_type [$i];
+		}
+		//$Mfc = M ( "ModualFieldContent" );
+		//$datamfc['modual_id']=I('id');
+		//$Mfclist=$Mfc->where ( $datamfc )->select();//查所有数据
+		
+
+		$c_letf_number = 7;
+		$this->assign ( "c_letf_number", $c_letf_number );
+		$this->assign ( "mymodual", $mymodual );
+		$this->assign ( "mfclist", $mfclist );
+		$this->display ( 'config/modual/updatefieldcontent' ); //输出页面模板
+	}
+	
+	//修改模型
+	public function update_gaojifield_text() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		
+		$Mfc = M ( "ModualFieldContent" );
+		$datamfc ['modual_id'] = I ( 'id' );
+		$datamfc ['select_field'] = I ( 'field' );
+		$Mfcdata = $Mfc->where ( $datamfc )->find (); //查所有数据
+		
+
+		//无数据，增加一个
+		if (! $Mfcdata) {
+			$datamfc ['modual_id'] = I ( 'id' );
+			$datamfc ['select_field'] = I ( 'field' );
+			$insertId = $Mfc->add ( $datamfc );
+			$Mfcdata = $Mfc->find ( $insertId );
+		}
+		
+		$c_letf_number = 7;
+		$this->assign ( "c_letf_number", $c_letf_number );
+		$this->assign ( "mymodual", $Mfcdata );
+		$this->display ( 'config/modual/updatefieldcontent2' ); //输出页面模板
+	}
+	
+	//修改模型
+	public function update_gaojifield_updata() {
+		//检验是否具有模块操作权限
+		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		
+		$Mfc = M ( "ModualFieldContent" );
+		$datamfc ['content'] = I ( 'content' );
+		
+		if (false !== $Mfc->where ( 'id=%d', I ( "id" ) )->data ( $datamfc )->save ()) {
+			//更新
+			$this->success ( '模型修改成功！' );
+		} else {
+			$this->error ( '数据写入错误' );
+		}
+	}
 
 }
 ?>

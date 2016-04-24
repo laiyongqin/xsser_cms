@@ -61,59 +61,12 @@
         
         <div class="content">
             <div class="row-fluid">
-               <!-- <a   onclick="#"  class="btn btn-info">新增</a>-->
-                
-                <!-- 弹出框 -->
-          <!--      
-          <div class="content">
-          <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a>
-          <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel">Modal Heading</h3>
-            </div>
-            <div class="modal-body">
-              <h4>Text in a modal</h4>
-              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
-
-              <h4>Popover in a modal</h4>
-              <p>This <a href="#" role="button" class="btn popover-test" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">button</a> should trigger a popover on hover.</p>
-
-              <h4>Tooltips in a modal</h4>
-              <p><a href="#" class="tooltip-test" data-original-title="Tooltip">This link</a> and <a href="#" class="tooltip-test" data-original-title="Tooltip">that link</a> should have tooltips on hover.</p>
-
-              <hr>
-
-              <h4>Overflowing text to show optional scrollbar</h4>
-              <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
-              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            </div>
-            <div class="modal-footer">
-              <button class="btn" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-          
-        </div> --><!-- End .content -->
-                <!-- 弹出框 -->
-                
-                
-                
-                
-                
-                
-                
             </div>
         </div><!-- End .content -->
         
         <div class="content">
           <ul id="tabExample1" class="nav nav-tabs">
-                                    <li class="active"><a href="#home1" data-toggle="tab">修改模型</a></li>
+                                    <li class="active"><a href="#home1" data-toggle="tab">修改【{$mymodual.modual_name}】中对应字段数据</a></li>
            </ul>
            <div class="tab-content">
                                     <div class="tab-pane fade in active" id="home1">
@@ -130,57 +83,39 @@
             </h3>
           </div>-->
           <div class="content">
-            <form class="form-horizontal row-fluid" action="{:U("ConfigModual/update")}" method="post">
-              <div class="form-row control-group row-fluid">
-                <label class="control-label span3" for="normal-field">模型名字*</label>
-                <div class="controls span7">
-                  <input type="text" id="normal-field" class="row-fluid" name="modual_name" value="{$mymodual.modual_name}">
-                </div>
-              </div>
-              <div class="form-row control-group row-fluid">
-                <label class="control-label span3" for="normal-field">属性显示名字*</label>
-                <div class="controls span7">
-                  <input type="text" id="normal-field" class="row-fluid" name="shuxing_name" value="{$mymodual.shuxing_name}">
-                </div>
-              </div>
-              <div class="form-row control-group row-fluid">
-                <label class="control-label span3" for="normal-field">属性对应类型*</label>
-                <div class="controls span7">
-                  <input type="text" id="normal-field" class="row-fluid" name="shuxing_type" value="{$mymodual.shuxing_type}">
-                </div>
-              </div>
-               <div class="form-row control-group row-fluid">
-                <label class="control-label span3">是否创建数据库表* </label>
-                <div class="controls span7">
-                  <label class="inline radio">
-                  <input type="radio" name="modual_type" value="0" disabled <php>echo $mymodual["modual_type"]==0?'checked="CHECKED"':'';</php> /> 否 </label>
-                  <label class="inline radio">
-                  <input type="radio" name="modual_type" value="1" disabled <php>echo $mymodual["modual_type"]==1?'checked="CHECKED"':'';</php> /> 是 </label>
-                </div>
-                 <div class="controls span3">
-               <font>注意高级模型的字段变动不会重新修改数据库表</font>
-                </div>
-              </div>
-             <div class="form-row control-group row-fluid">
-                <label class="control-label span3" for="normal-field">数据库中表名(高级模型)</label>
-                <div class="controls span7">
-                  <input type="text" id="normal-field" class="row-fluid" readonly="readonly"  name="database_table" value="{$mymodual.database_table}">
-                </div>
-              </div>
-              <div class="form-row control-group row-fluid">
-                <label class="control-label span3" for="normal-field">表中对应字段(高级模型)</label>
-                <div class="controls span7">
-                  <input type="text" id="normal-field" class="row-fluid" readonly="readonly"  name="table_field" value="{$mymodual.table_field}">
-                </div>
-              </div>
-              <div class="form-actions row-fluid">
-                <div class="span7 offset3">
-                  <button type="submit" class="btn btn-primary">保存</button>
-                  <input type="hidden" name="id" value="{$mymodual.id}">
-                  <!--<button type="button" class="btn btn-secondary">Cancel</button>-->
-                </div>
-              </div>
-            </form>
+
+
+           <table id="datatable_example" class="responsive table table-striped table-bordered" style="width:100%;margin-bottom:0; ">
+            <thead>
+            <tr>
+              <th class="no_sort">
+              字段类型
+              </th>
+              <th class="no_sort">
+              高级数据库字段
+              </th>
+              <th class="no_sort">
+              操作
+              </th>
+              <tr>
+            </thead>
+             <tbody>
+             <volist name="mfclist" id="vo">
+             <tr>
+             <th class="no_sort">
+              {$vo.type}
+              </th>
+              <td>
+              {$vo.field}
+              </td>
+               <td>
+                <a class="btn btn-small" rel="tooltip" data-placement="left" data-original-title=" 定义修改调用数据 "  href="<php>echo U('ConfigModual/update_gaojifield_text',array('id'=>$mymodual['id'],'field'=>$vo['field']));</php>"><i class="gicon-edit"></i></a>
+              </td>
+              </tr>
+             </volist>
+             </tbody>
+            </table>
+              <font style="color: red;">只有radio2、listtype、checkbox、sqltype四个高级模型需要编辑哦！</font>
           </div>
         </div>
              
@@ -199,81 +134,6 @@
         </div> <!-- End .content -->
     </div><!-- End .span6 .box -->
     
-    
-    
-    
-    <div class="row-fluid">
-    <div class="box gradient span12">
-
-
-        <div class="title">
-          <h3>
-          <i class=" icon-bar-chart"></i><span>属性对应类型</span>
-          </h3>
-        </div>
-        <!-- End .title -->
-        <div class="content">
-       
-<table class="table table-condensed table-striped">
-  <thead>
-    <tr>
-      <th> 类型标识</th>
-      <th> 对应html表单类型</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>text</td>
-      <td>普通文本输入框</td>
-    </tr>
-    <tr>
-      <td>area1</td>
-      <td>普通小型描述框</td>
-    </tr>
-    <tr>
-      <td>area2</td>
-      <td>富文本编辑器描述框</td>
-    </tr>
-    <tr>
-      <td>upload</td>
-      <td>上传图片，文件</td>
-    </tr>
-    <tr>
-      <td>pic</td>
-      <td>上传图片(加水印等)</td>
-    </tr>
-    <tr>
-      <td>radio</td>
-      <td>单选框(普通,只有"是"和"否"这两个选项)</td>
-    </tr>
-    <tr>
-      <td>radio2</td>
-      <td>高级复选框(高级模型专属，普通模型只识别为text类型)</td>
-    </tr>
-    <tr>
-      <td>listtype</td>
-      <td>下拉列表(高级模型专属，普通模型只识别为text类型)</td>
-    </tr>
-    <tr>
-      <td>checkbox</td>
-      <td>多选框(高级模型专属，普通模型只识别为text类型)</td>
-    </tr>
-    <tr>
-      <td>sqltype</td>
-      <td>SQL类型(高级模型专属，普通模型只识别为text类型)</td>
-    </tr>
-    <tr>
-      <td colspan="2"><font style="color: red;">注意:数据库中表名(高级模型)、表中对应字段(高级模型)尽量使用拼音或英文,且不能重复(也不能是mysql数据库sql语句关键字)，否则可能导致数据库表创建失败！</font></td>
-    </tr>
-  </tbody>
-</table>
-
-        </div>
- 
-    
-    </div>
-    </div>
-
 
 </div><!-- End .row-fluid -->
 

@@ -314,6 +314,69 @@
                 </div>
               </div>
 									<php>
+								}elseif($muxing_shuxing_type[$i]=="radio2")
+								{
+									</php>
+			  <div class="form-row control-group row-fluid">
+                <label class="control-label span2" for="normal-field"><php> echo $muxing_shuxing_name[$i];</php></label>
+                <div class="controls span6">
+                <php>$radio2list=get_gaojimoxing_text_info($mymodualNtype['modual_id'],$muxing_table_field[$i]);
+                	foreach ($radio2list as $value) {
+                </php>   
+                  <label class="inline radio">
+                  <input type="radio" name="param<php> echo $i;</php>" value="{$value}" <php>if($param_array[$param_array_table_field[$i]]==$value){echo 'checked="CHECKED"';}</php> />{$value}</label>                
+                    <php>}</php>
+                </div>
+              </div>
+									<php>
+								}
+								elseif($muxing_shuxing_type[$i]=="listtype")
+								{
+									</php>
+			  <div class="form-row control-group row-fluid">
+                <label class="control-label span2" for="normal-field"><php> echo $muxing_shuxing_name[$i];</php></label>
+                <div class="controls span6">
+                <select  class="chzn-select" id="default-select" name="param<php> echo $i;</php>">
+                <php>$listtypelist=get_gaojimoxing_text_info($mymodualNtype['modual_id'],$muxing_table_field[$i]);
+                	foreach ($listtypelist as $value) {
+                </php>
+                  <option value="{$value}" <php>if($param_array[$param_array_table_field[$i]]==$value){echo 'selected="selected"';}</php>>{$value}</option>               
+                    <php>}</php>
+                 </select>
+                </div>
+              </div>
+									<php>
+								}elseif($muxing_shuxing_type[$i]=="checkbox")
+								{
+									</php>
+			  <div class="form-row control-group row-fluid">
+                <label class="control-label span2" for="normal-field"><php> echo $muxing_shuxing_name[$i];</php></label>
+                <div class="controls span6">
+                <php>$checkboxlist=get_gaojimoxing_text_info($mymodualNtype['modual_id'],$muxing_table_field[$i]);
+                    $checkbox_data_list=explode(',',$param_array[$param_array_table_field[$i]]); 
+                	for($k = 0; $k < count ( $checkboxlist ); $k ++) {
+                </php>
+                    <label style="float: left;margin-left: 3px;"><input type="checkbox"  value="<php>echo $checkboxlist[$k];</php>" name="param<php> echo $i;</php>[]" <php>if(in_array($checkboxlist[$k], $checkbox_data_list)){echo 'checked="checked"';}</php>><php>echo $checkboxlist[$k];</php></label>
+                    <php>}</php>
+                </div>
+              </div>
+									<php>
+								}elseif($muxing_shuxing_type[$i]=="sqltype")
+								{
+									</php>
+			  <div class="form-row control-group row-fluid">
+                <label class="control-label span2" for="normal-field"><php> echo $muxing_shuxing_name[$i];</php></label>
+                <div class="controls span6">
+                <select  class="chzn-select" id="default-select" name="param<php> echo $i;</php>">
+                <php>$sqltypelist=get_gaojimoxing_sql_info($mymodualNtype['modual_id'],$muxing_table_field[$i]);
+                	foreach ($sqltypelist as $value) {
+                </php>
+                  <option value="{$value.product_title}" <php>if($param_array[$param_array_table_field[$i]]==$value['product_title']){echo 'selected="selected"';}</php>>{$value.product_title}</option>               
+                    <php>}</php>
+                 </select>
+                </div>
+              </div>
+									<php>
 								}
 								else
 								{

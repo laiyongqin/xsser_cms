@@ -83,7 +83,7 @@ function getadmin_moduletable_name($module_id) {
 
 //检验是否具有模块操作权限，模版页面用
 function check_quanxian_module2view($power_id, $module_id, $caozuo) {
-	if ($power_id != 1 && $_SESSION ["admin_rank"] != 0&&$module_id!=0) { //0是最高权限不需要审核
+	if ($power_id != 1 && $_SESSION ["admin_rank"] != 0 && $module_id != 0) { //0是最高权限不需要审核
 		$Modual = M ( "quanxian_caozuomodule" );
 		$mymodual = $Modual->where ( 'module_id=' . $module_id . ' AND power_id=' . $power_id )->find ();
 		$admin_power_name = getadmin_power_name ( $power_id );
@@ -92,10 +92,10 @@ function check_quanxian_module2view($power_id, $module_id, $caozuo) {
 			//$this_error_str = '你所在的权限组【' . $admin_power_name . '】' . '没有对模块【' . $admin_moduletable_name . '】的【' . getcaozuo_str_to_hanzi ( $caozuo ) . '】权限！';
 			//$this->error ( $this_error_str, U ( "Index/index" ) );
 			return false;
-		}else{
+		} else {
 			return true;
 		}
-	}else{
+	} else {
 		return true;
 	}
 }
@@ -306,17 +306,25 @@ function create_datatable($table_name, $shuxing_type, $table_field) {
 
 function selsect_ziduantype($shuxing_type) {
 	if ($shuxing_type == "text") {
-		return " varchar(500) ";
+		return " varchar(800) ";
 	} elseif ($shuxing_type == "area1") {
 		return " varchar(800) ";
 	} elseif ($shuxing_type == "area2") {
 		return " text ";
 	} elseif ($shuxing_type == "upload") {
-		return "  varchar(500)  ";
+		return "  varchar(800)  ";
 	} elseif ($shuxing_type == "pic") {
-		return "  varchar(500) ";
+		return "  varchar(800) ";
 	} elseif ($shuxing_type == "radio") {
 		return " tinyint(3) ";
+	} elseif ($shuxing_type == "radio2") {
+		return "  varchar(800) ";
+	} elseif ($shuxing_type == "listtype") {
+		return "  varchar(800) ";
+	} elseif ($shuxing_type == "checkbox") {
+		return "  varchar(800) ";
+	} elseif ($shuxing_type == "sqltype") {
+		return "  varchar(500) ";
 	}
 	return " varchar(800) ";
 }
@@ -356,6 +364,44 @@ function SendMail($address, $title, $message) {
 		return true;
 	}
 
+}
+
+//返回ture删除这个数据
+//function selsect_gaojimoxing_edit($table_name) {
+//	if ($table_name == "checkbox") {
+//		return false;
+//	}
+//	if ($table_name == "sqltype") {
+//		return false;
+//	}
+//	if ($table_name == "radio2") {
+//		return false;
+//	}
+//	if ($table_name == "listtype") {
+//		return false;
+//	}
+//	return true;
+//}
+
+
+function get_gaojimoxing_text_info($modual_id,$table_name) {
+	$Mfc = M ( "ModualFieldContent" );
+	$datamfc ['modual_id'] =$modual_id;
+	$datamfc ['select_field'] = $table_name;
+	$Mfcdata = $Mfc->where ( $datamfc )->find (); //查所有数据
+	$arraydata= explode(",",$Mfcdata['content']);
+	return $arraydata;
+}
+
+function get_gaojimoxing_sql_info($modual_id,$table_name) {
+	$Mfc = M ( "ModualFieldContent" );
+	$datamfc ['modual_id'] =$modual_id;
+	$datamfc ['select_field'] = $table_name;
+	$Mfcdata = $Mfc->where ( $datamfc )->find (); //查所有数据
+	$Modual = M ( "Product" );
+	$condition ["type_id"] = $Mfcdata['content'];
+	$mymodual = $Modual->where ( $condition )->field('id,product_title')->select();
+	return $mymodual;
 }
 
 ?>

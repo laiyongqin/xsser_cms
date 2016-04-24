@@ -68,8 +68,10 @@ class ProductgaojiAction extends BaseAction {
 		$this->assign ( "mymodualNtype", $mymodualNtype );
 		$muxing_shuxing_name = split ( '[|]', $mymodualNtype ['shuxing_name'] );
 		$muxing_shuxing_type = split ( '[|]', $mymodualNtype ['shuxing_type'] );
+		$muxing_table_field = split ( '[|]', $mymodualNtype ['table_field'] );
 		$this->assign ( "muxing_shuxing_name", $muxing_shuxing_name );
 		$this->assign ( "muxing_shuxing_type", $muxing_shuxing_type );
+		$this->assign ( "muxing_table_field", $muxing_table_field );
 		//		trace ( $muxing_shuxing_name );
 		//		trace ( $muxing_shuxing_type );
 		$c_letf_number = 5;
@@ -118,7 +120,23 @@ class ProductgaojiAction extends BaseAction {
 			$param_id = 0;
 			$pdata = null;
 			for($i = 0; $i < count ( $param_array ); $i ++) {
-				$pdata [$param_array_table_field [$i]] = $_POST ['param' . $i];
+				if (is_array ( $_POST ['param' . $i] )) {
+					//是数组，用来处理checkbox数据
+					$param_checkbox = $_POST ['param' . $i];
+					$param_checkbox_str = "";
+					for($j = 0; $j < count ( $param_checkbox ); $j ++) {
+						if ($j == 0) {
+							$param_checkbox_str = str_ireplace ( ",", "", $param_checkbox [$j] );
+						} else {
+							$param_checkbox_str = $param_checkbox_str . "," . str_ireplace ( ",", "", $param_checkbox [$j] );
+						}
+					}
+					$pdata [$param_array_table_field [$i]] = $param_checkbox_str;
+				} else {
+					//不是数组
+					$pdata [$param_array_table_field [$i]] = $_POST ['param' . $i];
+				}
+			
 			}
 			$param_id = $pModel->data ( $pdata )->add ();
 			if ($param_id == 0) {
@@ -187,7 +205,9 @@ class ProductgaojiAction extends BaseAction {
 		$tuijian_id_group = split ( '[|]', $mymodual ['tuijian_id_group'] );
 		$muxing_shuxing_name = split ( '[|]', $mymodualNtype ['shuxing_name'] );
 		$muxing_shuxing_type = split ( '[|]', $mymodualNtype ['shuxing_type'] );
+		$muxing_table_field = split ( '[|]', $mymodualNtype ['table_field'] );
 		$this->assign ( "muxing_shuxing_name", $muxing_shuxing_name );
+		$this->assign ( "muxing_table_field", $muxing_table_field );
 		$this->assign ( "muxing_shuxing_type", $muxing_shuxing_type );
 		$this->assign ( "tuijian_id_group", $tuijian_id_group );
 		//trace($tuijian_id_group);
@@ -239,8 +259,26 @@ class ProductgaojiAction extends BaseAction {
 			$param_array_table_field = split ( '[|]', $mymodualNtype ['table_field'] ); //....
 			$pModel = M ( ucfirst ( $mymodualNtype ['database_table'] ) ); //....
 			$pdata = null;
+			//			for($i = 0; $i < count ( $param_array ); $i ++) {
+			//				$pdata [$param_array_table_field [$i]] = $_POST ['param' . $i];
+			//			}
 			for($i = 0; $i < count ( $param_array ); $i ++) {
-				$pdata [$param_array_table_field [$i]] = $_POST ['param' . $i];
+				if (is_array ( $_POST ['param' . $i] )) {
+					//是数组，用来处理checkbox数据
+					$param_checkbox = $_POST ['param' . $i];
+					$param_checkbox_str = "";
+					for($j = 0; $j < count ( $param_checkbox ); $j ++) {
+						if ($j == 0) {
+							$param_checkbox_str = str_ireplace ( ",", "", $param_checkbox [$j] );
+						} else {
+							$param_checkbox_str = $param_checkbox_str . "," . str_ireplace ( ",", "", $param_checkbox [$j] );
+						}
+					}
+					$pdata [$param_array_table_field [$i]] = $param_checkbox_str;
+				} else {
+					//不是数组
+					$pdata [$param_array_table_field [$i]] = $_POST ['param' . $i];
+				}			
 			}
 			$canshuzhixingjieguo = "";
 			if (false == $pModel->where ( 'id=%d', I ( 'param_id' ) )->save ( $pdata )) {
@@ -297,7 +335,7 @@ class ProductgaojiAction extends BaseAction {
 			$this_ProductType_table = M ( "ProductType" );
 			$this_ProductType = $this_ProductType_table->find ( $mymodual ['type_id'] );
 			$Modual_this_data = M ( ucfirst ( $this_ProductType ['database_table'] ) );
-			$Modual_this_data->where ( 'id=%d', $mymodual['param'] )->delete ();
+			$Modual_this_data->where ( 'id=%d', $mymodual ['param'] )->delete ();
 			$this->success ( '数据删除成功！', U ( "getlist", array ("type_id" => $mymodual ["type_id"] ) ) );
 		} else {
 			$this->error ( '数据写入错误' );

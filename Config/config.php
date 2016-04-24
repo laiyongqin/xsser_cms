@@ -5,7 +5,7 @@ return array(
 	/* 数据库设置 */
 	'DB_TYPE'            => 'mysql', // 数据库类型
 	'DB_HOST'            => 'localhost', // 服务器地址
-	'DB_NAME'            => '201604_xiyuan', // 数据库名
+	'DB_NAME'            => 'xsser_cms', // 数据库名
 	'DB_USER'            => 'root', // 用户名
 	'DB_PWD'             => '', // 密码
 	'DB_PORT'            => 3306, // 端口
@@ -28,7 +28,7 @@ return array(
     'OUTPUT_CHARSET'	=>'utf-8', // 默认输出编码
 //	'TMPL_ACTION_ERROR'   => 'Public:info', // 默认错误跳转对应的模板文件
 //	'TMPL_ACTION_SUCCESS' => 'Public:info', // 默认成功跳转对应的模板文件
-	'TMPL_TEMPLATE_SUFFIX'=>'.html',
+//	'TMPL_TEMPLATE_SUFFIX'=>'.html',
 	// Think模板引擎标签库相关设定
 	'TAGLIB_BEGIN' => '<', // 标签库标签开始标记
 	'TAGLIB_END'   => '>', // 标签库标签结束标记
@@ -38,7 +38,7 @@ return array(
 	'VAR_ACTION' => 'a', // 默认操作获取变量
 
 	/* URL设置 */
-	'URL_MODEL' => 1, // URL访问模式,可选参数0、1、2、3,代表以下四种模式：
+//	'URL_MODEL' => 1, // URL访问模式,可选参数0、1、2、3,代表以下四种模式：
 	// 0 (普通模式);
 	//1(PATHINFO模式);
 	//2(REWRITE模式);
@@ -80,7 +80,8 @@ return array(
               "quanxian_caozuon",
               "quanxian_caozuop",
               "quanxian_power",
-              "quanxian_moduletable"
+              "quanxian_moduletable",
+              "modual_field_content"
     ),
     //高级模型创建数据库表名和系统表区别词
     'XSSER_MY_CREATE_TABLENAME_PREFIX'=>"new_modual_",
@@ -133,8 +134,8 @@ return array(
     //后台系统信息
     'XSSER_SYS_INFO'=>array(
             'title'=>'XSSER_CMS',
-            'up_time'=>"2016.4.15",
-            'version'=>"0.1.4",
+            'up_time'=>"2016.4.24",
+            'version'=>"0.1.5",
     ),
     //网站引用路径变量
     'XSSER_URL_PATH'=>'/',

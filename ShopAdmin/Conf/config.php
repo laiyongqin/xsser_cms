@@ -6,6 +6,16 @@ $arr1= array(
 	
     /*session*/
     'SESSION_AUTO_START' => true, //是否开启session
+	
+	/* URL设置 */
+	'URL_MODEL' => 1, // URL访问模式,可选参数0、1、2、3,代表以下四种模式：
+	// 0 (普通模式);
+	//1(PATHINFO模式);
+	//2(REWRITE模式);
+	//3(兼容模式)当URL_DISPATCH_ON开启后有效;
+	
+	//模版后缀
+	'TMPL_TEMPLATE_SUFFIX'=>'.html',
 
 	/* 表单令牌验证 */
 	'TOKEN_ON'   => true, // 开启令牌验证
