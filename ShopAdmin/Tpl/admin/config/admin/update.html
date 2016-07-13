@@ -100,6 +100,7 @@
                   <input type="password" id="password-field" class="row-fluid password" name="admin_pass">
                 </div>
               </div>
+              <php>if($_SESSION ["admin_power"]<=1){</php>
               <div class="form-row control-group row-fluid">
                <label class="control-label span3" for="normal-field">所属管理组</label>
                 <div class="controls span7">
@@ -110,6 +111,7 @@
                   </select>
                 </div>
               </div>
+              <php>}</php>
               <div class="form-actions row-fluid">
                 <div class="span7 offset3">
                   <input type="hidden"" name="id" value="{$mymodual.id}">

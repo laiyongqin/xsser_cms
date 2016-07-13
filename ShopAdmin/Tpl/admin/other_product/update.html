@@ -169,7 +169,10 @@
               <div class="form-row control-group row-fluid">
                 <label class="control-label span2" for="normal-field"><php> echo $muxing_shuxing_name[$i];</php></label>
                 <div class="controls span7">
-                  <textarea rows="3" class="row-fluid autogrow" id="elastic-textarea"  name="param<php> echo $i;</php>" >{$param_array[$i]}</textarea>
+                  <textarea rows="3" class="row-fluid autogrow" id="elastic-textarea"  name="param<php> echo $i;</php>" >
+                  <php>$abtext=htmlspecialchars_decode($param_array[$i]);</php>
+                   {$abtext|str_replace='\"','"',###}
+                  </textarea>
                 </div>
               </div>
 									<php>

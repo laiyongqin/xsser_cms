@@ -1,0 +1,136 @@
+@charset "utf-8";
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;}
+body,input,textarea,select,button,table{font-size:16px;line-height:1.25em;font-family:Arial,'microsoft yahei',Verdana,Helvetica,sans-serif;}
+body{min-width:320px;font-size:1em; -webkit-text-size-adjust:none; color: #333;}
+h1,h2,h3,h4,h5,h6 {font-size: inherit; font-weight: normal;}
+header,footer,section,nav,menu,details,hgroup,figure,figcaption,article,aside{margin:0;padding:0;display:block}
+img,fieldset{border:0;}
+img { vertical-align:middle;}
+ul,ol{list-style:none;}
+table{border-collapse:collapse; width: 100%;}
+a{color:#666;text-decoration:none;}
+.cl:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden}
+.cl{zoom:1}
+.cred { color: #c30816;}
+body {background-color: #fff;}
+#header { border-bottom: 1px solid #0195a1;}
+#header img,.mcon img,#banner img { width: 100%;}
+#banner { margin-bottom: 25px;}
+/*.owl-theme .owl-controls{ margin-top: -30px; text-align: right; padding-right: 5%; position: relative; z-index: 222;}
+.owl-theme .owl-controls .owl-page{display: inline-block;zoom: 1;*display: inline;}
+.owl-theme .owl-controls .owl-page span{display: block;width: 10px;height: 10px; margin-right: 5px; background: #aeaeae;overflow: hidden; border-radius: 50%;}
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{ background: #0195a1;}
+.owl-item.loading{min-height: 150px;background: url(AjaxLoader.gif) no-repeat center center}*/
+#nav { background-color: #0186d1; margin-bottom: 1px; padding-left: 1px;}
+#nav li { float: left; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box; width: 20%; height: 40px; line-height: 40px; text-align: center; border: 1px solid #fff; color: #fff; margin-bottom: -1px; border-left: 0 none; white-space: nowrap; -ms-text-overflow: ellipsis;text-overflow: ellipsis;}
+#nav li a { color: #fff;}
+.mbox h2 { padding: 4% 0}
+.mbox h2 img { width: 100%;}
+.mbox h3 { text-align: center; margin-bottom: 30px;}
+
+.mtabt li { float: left; margin-left: 10%; margin-bottom:10px; padding-left:4px; padding-right:4px; border: 1px solid #494949; height: 40px; line-height: 40px; width: 27%; text-align: center;}
+.mlist { padding: 20px 10px;}
+.mlist li { float: left; width: 50%; text-align: center; padding: 10px 0;}
+.mlist li img { width: 90%; border: 1px solid #c5c5c5; padding: 1px;}
+.mlist li h6,.caselist li h6 { font-size: 1em; padding: 5px;}
+.whychooseus { padding: 7% 5%; background-color: #e83426; color: #fff;}
+.whychooseus h2 { text-align: center; font-size: 2.5em; font-weight: bold; line-height: 1.6;}
+.whychooseus h3 { text-align: center; font-size: 1.2em;}
+.choosepic { padding: 6px; border: 1px solid #cec8c7; background-color: #fff; margin:5% auto;}
+.choosepic img,.aboutpic img,.newslist li .npic img { width: 100%;}
+.abouttxt { line-height: 1.8;}
+.about h2 { background-color: #1773cc; color: #fff; padding:3% 5%; font-size: 1.6em; font-weight: bold;}
+.aboutcon { padding: 5%;}
+.aboutpic { border: 1px solid #ddd; padding: 6px;}
+.aboutinfo { padding: 5% 0; color: #494949; line-height: 1.6;}
+.aboutinfo p { text-indent: 30px;}
+.viewmore a { display: block; text-align: center; border-radius: 10px; height: 40px; color: #fff; background-color: #03669d; line-height: 40px;}
+.ntab {}
+.ntabt { background-color: #cbcbcb; height: 50px;}
+.ntabt li { float: left; width: 30%; text-align: center; height: 50px; line-height: 50px; color: #063d5c; font-weight: bold;}
+.ntabt li.on { background-color: #03669d; color: #fff;}
+.newstabt { padding: 40px 20px 0; }
+.newstabt li { float: left; width: 30%; text-align: center; height: 50px; line-height: 50px; color: #fff; background-color: #3e3836; margin-right: 10px;}
+.newstabt li.on { background-color: #cc0202;}
+
+.news { padding: 20px;}
+.newslist li { background: #fafafa; padding: 10px 0; }
+.newslist li .npic { float: left; width: 33%;}
+.newslist li .ninfo { float: right; width: 63%;}
+.newslist li .ninfo h5 { font-size: 1.1em; line-height: 2;}
+.newslist li .ninfo p { text-indent: 30px; line-height: 1.6; font-size: .9em;}
+#footer { background-color: #313131; color: #9b9a9a; font-size: .9em; text-align: center; padding: 25px 0 85px; line-height: 1.8;}
+.botnav { height: 60px; position: fixed; bottom: 0; width: 100%; left: 0; background-color: #03669d;}
+.botnav li { float: left; width: 22%; height: 60px; line-height: 60px; text-align: center; border-right: 1px solid #f07f76; position: relative; z-index: 222;}
+.botnav li a { display: inline-block; width: 100%; height: 25px; padding-top: 35px; line-height: 20px; font-size: 1.1em; color: #fff; background: url(../mimages/bicon1.png) no-repeat center 7px;}
+.botnav li:nth-child(2) a { background-image: url(../mimages/bicon2.png);}
+.botnav li:nth-child(3) a { background-image: url(../mimages/bicon3.png);}
+.botnav li:nth-child(4) a { background-image: url(../mimages/bicon4.png);}
+.botnav .gotop { position: absolute; right: 0; bottom: 0; height: 30px; width: 12%; text-align: center; color: #fff; font-size: .9em; padding-top: 30px; background: url(../mimages/arrow.png) no-repeat center 18px;}
+.location { clear: both;}
+.locationcon { background-color: #0195a1; font-size: 1.1em; padding: 8px 26px; color: #fff;}
+.locationcon a { color: #fff;}
+.pages { clear: both; padding: 15px; text-align: center;}
+.article { padding: 25px;}
+.article p { color: #4c4c4c; text-indent: 30px; line-height: 1.6; margin-bottom: 15px;}
+.service1 { padding: 8% 5%;}
+.service1 h2 { text-align: center; font-size:2em; font-weight: bold; color: #cd0000; line-height: 1.6; margin-bottom: 15px;}
+.serintro1 { line-height: 1.8; font-size: 1.1em;}
+.serintro1 p { padding: 4px 0}
+.service2 { background-color: #8e0202; padding: 20px; color: #fff; line-height: 1.8; text-align: center;}
+.service2 h2 { font-weight: bold; font-size: 2em; margin-bottom: 10px;}
+.serintro2 { font-size: 1.2em;}
+.service3 { padding: 20px; line-height: 1.8; text-align: center;}
+.service3 h2 { font-size: 1.4em; font-weight: bold;}
+.service3 h3 { font-size: 1.4em; font-weight: bold; color: #8e0202;}
+.service3 h1 { font-size: 1.8em; font-weight: bold; color: #303030;}
+.contactlink { padding: 10px;}
+.contactlink a { display: inline-block; border: 1px solid #212121; height: 35px; line-height: 35px; padding: 0 20px;}
+.service4 { padding: 20px; line-height: 1.6;}
+.service4 h2 { font-size: 2em; text-align: center; font-weight: bold;}
+.service4 p{ font-size: 1.2em; padding: 10px 0;}
+.partner { padding: 20px; margin-bottom: 20px;}
+.partner h2 { text-align: center; padding: 10px;}
+.partner h3 { font-size: 1.2em; text-align: center; line-height: 2;}
+.partner ul li { float: left; width: 30%; margin-left: 2%; margin-top: 2%; border: 1px solid #cbcbcb;}
+.partner ul li img { width: 100%;}
+.team { padding: 20px;}
+.teamlist li { padding: 20px 0;}
+.teamlist li .npic { float: left; width: 30%; border: 1px solid #c3c3c3;}
+.teamlist li .npic img { width: 100%;}
+.teamlist li .ninfo { width: 66%; float: right; line-height: 1.6;}
+.teamlist li .ninfo h5 { font-size: 1.5em; line-height: 1.8;}
+.teamlist li .ninfo p { font-size: .9em;}
+.teamlist li .ninfo .vmore { margin-top: 10px;}
+.teamlist li .ninfo .vmore a { display: inline-block; background-color: #e83426; color: #fff; border-radius: 8px; padding: 3px 25px;}
+.test1 { background-color: #f5f5f5; padding:40px 20px;}
+.test1 h2 { text-align: center; font-weight: bold; font-size: 2em; color: #ca0000; margin-bottom: 20px;}
+.test1 li { float: left; width: 29%; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box; padding: 15px; color: #363636; border-radius: 8px; background-color: #c3c3c3; line-height: 1.5em; height: 80px; margin-top: 3%; margin-left: 3%;}
+.test1 li.redbg { background-color: #a20a17; color: #fff;}
+.casebox { padding: 20px;}
+.casebox h2 { text-align: center; font-size: 2em; line-height: 2; font-weight: bold;}
+.mtitle { border-bottom: 1px solid #c3c3c3;}
+.mtitle .more { float: right; margin-top: 20px;}
+.mtitle .more a { color: #a20a17;}
+.mtitle .title { display: inline-block; border-bottom: 6px solid #a20a17; margin-bottom: -3px; font-size: 1.5em; font-weight: bold; line-height: 2;}
+.casecon { padding: 30px 0;}
+.casecon .casepic { float: left; width: 40%;}
+.casecon .casepic img { width: 100%;}
+.casecon .caseinfo { float: right; width: 56%; line-height: 1.8;}
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+
+.botnav li a { font-size: 1em;}
+.prolist li .info { font-size: .8em;}
+}
+@media screen and (max-width:350px) {
+
+.botnav li a { font-size: .95em;}
+}

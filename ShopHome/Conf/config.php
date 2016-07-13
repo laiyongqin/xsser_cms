@@ -16,7 +16,7 @@ $arr1=array(
 	//2(REWRITE模式);
 	//3(兼容模式)当URL_DISPATCH_ON开启后有效;
 	//模版后缀
-	'TMPL_TEMPLATE_SUFFIX'=>'.html',
+	'TMPL_TEMPLATE_SUFFIX'=>'.php',
 
 	/* 表单令牌验证 */
 //	'TOKEN_ON'   => true, // 开启令牌验证

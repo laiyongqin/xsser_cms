@@ -77,7 +77,7 @@ class NewsAction extends BaseAction {
 			$data ['type_id'] = I ( 'type_id' );
 			$data ['user_id'] = session ( 'admin_id' );
 			$data ['news_title'] = I ( 'news_title' );
-			$data ['news_content'] = I ( 'news_content' );
+			$data ['news_content'] = get_quxiegang_text(I('news_content','',''));;
 			$data ['news_reco'] = I ( 'news_reco' );
 			$data ['news_user'] = I ( 'news_user' );
 			$data ['news_time'] = time ();
@@ -92,7 +92,7 @@ class NewsAction extends BaseAction {
 			$data ['bak2'] = I ( 'bak2' );
 			
 			if (false !== $news->add ( $data )) {
-				$this->success ( '数据添加成功！', U ( "getnewslist", array ("type_id" => I ( 'type_id' ) ) ) );
+				alert("数据添加成功！","getnewslist?type_id=".I ( 'type_id' ));
 			} else {
 				$this->error ( '数据写入错误' );
 			}
@@ -138,7 +138,7 @@ class NewsAction extends BaseAction {
 			$data ['type_id'] = I ( 'type_id' );
 			$data ['user_id'] = session ( 'admin_id' );
 			$data ['news_title'] = I ( 'news_title' );
-			$data ['news_content'] = I ( 'news_content' );
+			$data ['news_content'] = get_quxiegang_text(I('news_content','',''));;
 			$data ['news_reco'] = I ( 'news_reco' );
 			$data ['news_user'] = I ( 'news_user' );
 			$data ['news_time'] = getformat_time ( I ( 'news_time' ) );
@@ -153,7 +153,8 @@ class NewsAction extends BaseAction {
 			$data ['bak2'] = I ( 'bak2' );
 			
 			if (false !== $news->where ( 'id=%d', I ( 'id' ) )->save ( $data )) {
-				$this->success ( '数据更新成功！', U ( "getnewslist", array ("type_id" => I ( 'type_id' ) ) ) );
+				//$this->success ( '数据更新成功！', U ( "getnewslist", array ("type_id" => I ( 'type_id' ) ) ) );
+				alert("数据更新成功！","getnewslist?type_id=".I ( 'type_id' ));
 			} else {
 				$this->error ( '数据写入错误' );
 			}
@@ -176,7 +177,8 @@ class NewsAction extends BaseAction {
 		$mymodual = $Modual->where ( $condition )->find ();
 		
 		if ($Modual->where ( 'id=%d', $_GET ['id'] )->delete ()) {
-			$this->success ( '数据删除成功！', U ( "getnewslist", array ("type_id" => $mymodual ["type_id"] ) ) );
+			//$this->success ( '数据删除成功！', U ( "getnewslist", array ("type_id" => $mymodual ["type_id"] ) ) );
+		    alert("数据删除成功！","getnewslist?type_id=".$mymodual ['type_id']);
 		} else {
 			$this->error ( '数据写入错误' );
 		}

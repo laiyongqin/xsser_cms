@@ -52,7 +52,7 @@ class ConfigAdminAction extends BaseAction {
 	//修改模型
 	public function update_info() {
 		//检验是否具有模块操作权限
-		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		//$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
 		
 		$Modual = M ( "Admin" );
 		$mymodual = $Modual->find ( $_GET ["id"] );
@@ -71,7 +71,7 @@ class ConfigAdminAction extends BaseAction {
 	//修改模型
 	public function update() {
 		//检验是否具有模块操作权限
-		$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
+		//$this->check_quanxian_module ( $_SESSION ["admin_power"], $this->c_letf_number, 'view' );
 		
 		$Form = D ( "Admin" );
 		if ($Form->create ()) {

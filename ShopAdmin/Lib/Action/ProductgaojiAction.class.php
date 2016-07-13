@@ -96,7 +96,7 @@ class ProductgaojiAction extends BaseAction {
 			$data ['product_title'] = I ( 'product_title' );
 			$data ['product_pic_s'] = I ( 'product_pic_s' );
 			$data ['product_pic_b'] = I ( 'product_pic_b' );
-			$data ['product_content'] = I ( 'product_content' );
+			$data ['product_content'] = get_quxiegang_text(I('product_content','',''));
 			$data ['product_reco'] = I ( 'product_reco' );
 			$data ['product_user'] = I ( 'product_user' );
 			$data ['product_time'] = getformat_time ( I ( 'product_time' ) );
@@ -237,7 +237,7 @@ class ProductgaojiAction extends BaseAction {
 			$data ['product_title'] = I ( 'product_title' );
 			$data ['product_pic_s'] = I ( 'product_pic_s' );
 			$data ['product_pic_b'] = I ( 'product_pic_b' );
-			$data ['product_content'] = I ( 'product_content' );
+			$data ['product_content'] = get_quxiegang_text(I('product_content','',''));
 			$data ['product_reco'] = I ( 'product_reco' );
 			$data ['product_user'] = I ( 'product_user' );
 			$data ['product_time'] = getformat_time ( I ( 'product_time' ) );
@@ -284,7 +284,7 @@ class ProductgaojiAction extends BaseAction {
 			if (false == $pModel->where ( 'id=%d', I ( 'param_id' ) )->save ( $pdata )) {
 				Log::write ( "数据额外参数表更新数据错误(也可能是您没有对参数项做任何更改!),  执行SQL:" . $pModel->_sql () );
 				//$this->error ('数据额外参数表更新数据错误(也可能是您没有对参数项做任何更改!)');
-				$canshuzhixingjieguo = "<br>{数据额外参数表更新数据错误(也可能是您没有对模型参数项做任何更改,不用担心!)}";
+				$canshuzhixingjieguo = "\r\n数据额外参数表更新数据错误(也可能是您没有对模型参数项做任何更改,不用担心!)";
 			}
 			//$data ['param'] = $param_id;
 			
@@ -308,7 +308,8 @@ class ProductgaojiAction extends BaseAction {
 			$data ['bak2'] = I ( 'bak2' );
 			
 			if (false !== $products->where ( 'id=%d', I ( 'id' ) )->save ( $data )) {
-				$this->success ( '数据更新成功！' . $canshuzhixingjieguo, U ( "getlist", array ("type_id" => $data ['type_id'] ) ) );
+				//$this->success ( '数据更新成功！' . $canshuzhixingjieguo, U ( "getlist", array ("type_id" => $data ['type_id'] ) ) );
+			    alert("数据更新成功!".$canshuzhixingjieguo,"getlist?type_id=".$data ['type_id'] );
 			} else {
 				$this->error ( '数据写入错误' );
 			}
@@ -336,7 +337,8 @@ class ProductgaojiAction extends BaseAction {
 			$this_ProductType = $this_ProductType_table->find ( $mymodual ['type_id'] );
 			$Modual_this_data = M ( ucfirst ( $this_ProductType ['database_table'] ) );
 			$Modual_this_data->where ( 'id=%d', $mymodual ['param'] )->delete ();
-			$this->success ( '数据删除成功！', U ( "getlist", array ("type_id" => $mymodual ["type_id"] ) ) );
+			//$this->success ( '数据删除成功！', U ( "getlist", array ("type_id" => $mymodual ["type_id"] ) ) );
+			alert("数据删除成功!","getlist?type_id=".$mymodual["type_id"] );
 		} else {
 			$this->error ( '数据写入错误' );
 		}

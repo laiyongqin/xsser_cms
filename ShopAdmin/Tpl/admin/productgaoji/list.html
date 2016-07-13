@@ -195,7 +195,7 @@
             发布时间
               </th>
               <th class="no_sort to_hide_phone">
-            浏览次数
+            缩略图
               </th>
               <th class="no_sort to_hide_phone">
             是否审核
@@ -234,7 +234,8 @@
                 {$vo.product_time|date='Y-m-d',###}
               </td>
               <td class="to_hide_phone">
-               {$vo.view_count}
+                <!--{$vo.view_count}-->
+                <php>if(trim($vo['product_pic_s'])!=""){</php><img  src="{$vo.product_pic_s}" width="120" height="100"><php>}</php>
               </td>
               <td class="to_hide_phone">
                <eq name="vo.active" value="1"><font style="color: blue;">已审核</font></eq><eq name="vo.active" value="0"><font style="color: red;">未审核</font></eq>

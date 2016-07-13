@@ -42,7 +42,7 @@ class DanyeNewsAction extends BaseAction {
 			$data ['type_id'] = $condition ["type_id"];
 			$data ['user_id'] = session ( 'admin_id' );
 			$data ['news_title'] = $mymodualNtype ["type_name"];
-			$data ['news_content'] = '默认内容';
+			$data ['news_content'] = "默认内容";
 			$data ['news_reco'] = 1;
 			$data ['news_time'] = time ();
 			$data ['news_modify_time'] = time ();
@@ -71,7 +71,7 @@ class DanyeNewsAction extends BaseAction {
 			$data ['type_id'] = I ( 'type_id' );
 			$data ['user_id'] = session ( 'admin_id' );
 			$data ['news_title'] = I ( 'news_title' );
-			$data ['news_content'] = I ( 'news_content' );
+			$data ['news_content'] = get_quxiegang_text(I('news_content','',''));
 			$data ['news_reco'] = I ( 'news_reco' );
 			$data ['news_user'] = I ( 'news_user' );
 			$data ['news_time'] = getformat_time ( I ( 'news_time' ) );
@@ -86,7 +86,8 @@ class DanyeNewsAction extends BaseAction {
 			$data ['bak2'] = I ( 'bak2' );
 			
 			if (false !== $news->where ( 'id=%d', I ( 'id' ) )->save ( $data )) {
-				$this->success ( '数据更新成功！', 'index' );
+				//$this->success ( '数据更新成功！', 'index' );
+				alert("数据更新成功！","index");
 			} else {
 				$this->error ( '数据写入错误' );
 			}

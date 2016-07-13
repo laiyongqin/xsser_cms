@@ -148,7 +148,11 @@
               <div class="form-row control-group row-fluid">
                 <label class="control-label span2" for="normal-field">内容*</label>
                 <div class="controls span7">
-                  <textarea  id="mydefault-textarea" name="news_content">{$mymodual.news_content}</textarea>
+                  <textarea  id="mydefault-textarea" name="news_content">
+                  {//$mymodual.news_content}
+                  <php>$abtext= htmlspecialchars_decode($mymodual['news_content']);</php>
+                  {$abtext|str_replace='\"','"',###}
+                  </textarea>
                   <script type="text/javascript">    
                         var editor = new baidu.editor.ui.Editor();    
                         editor.render("mydefault-textarea");//这里认的是上面控件的ID  

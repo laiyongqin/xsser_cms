@@ -3,11 +3,17 @@ class LoginAction extends Action {
 	
 	//登录页面
 	public function index() {
+	    $Model = M ( "Conf" );
+	    $getsysinfo_title = $Model->where ( " conf='%s' ", "网站标题" )->find ();
+	    $this->assign ( "getsysinfo_title", $getsysinfo_title['value'] );
 		$this->display ( 'login/login' );
 	}
 	
 	//登录页面
 	public function login() {
+	    $Model = M ( "Conf" );
+	    $getsysinfo_title = $Model->where ( " conf='%s' ", "网站标题" )->find ();
+	    $this->assign ( "getsysinfo_title", $getsysinfo_title['value']  );
 		$this->display ( 'login/login' );
 	}
 	

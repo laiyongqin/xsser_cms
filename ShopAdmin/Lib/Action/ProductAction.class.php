@@ -96,7 +96,7 @@ class ProductAction extends BaseAction {
 			$data ['product_title'] = I ( 'product_title' );
 			$data ['product_pic_s'] = I ( 'product_pic_s' );
 			$data ['product_pic_b'] = I ( 'product_pic_b' );
-			$data ['product_content'] = $_POST ['product_content'];
+			$data ['product_content'] = get_quxiegang_text(I('product_content','',''));
 			$data ['product_reco'] = I ( 'product_reco' );
 			$data ['product_user'] = I ( 'product_user' );
 			$data ['product_time'] = getformat_time ( I ( 'product_time' ) );
@@ -108,9 +108,9 @@ class ProductAction extends BaseAction {
 			$param = "";
 			for($i = 0; $i < count ( $param_array ); $i ++) {
 				if ($i == 0) {
-					$param = str_ireplace ( "|", "", $_POST ['param' . $i] );
+					$param = str_ireplace ( "|", "", get_quxiegang_text($_POST ['param' . $i]) );
 				} else {
-					$param = $param . "|" . str_ireplace ( "|", "", $_POST ['param' . $i] );
+					$param = $param . "|" . str_ireplace ( "|", "", get_quxiegang_text($_POST ['param' . $i]) );
 				}
 			}
 			$data ['param'] = $param;
@@ -134,8 +134,8 @@ class ProductAction extends BaseAction {
 			$data ['bak2'] = I ( 'bak2' );
 			
 			if (false !== $products->add ( $data )) {
-				$this->success ( '数据添加成功！', U ( "getlist", array ("type_id" => I ( 'type_id' ) ) ) );
-			
+				//$this->success ( '数据添加成功！', U ( "getlist", array ("type_id" => I ( 'type_id' ) ) ) );
+			    alert("数据添加成功！","getlist?type_id=".I('type_id') );
 		//echo $products->getLastSql();
 			} else {
 				$this->error ( '数据写入错误' );
@@ -202,7 +202,7 @@ class ProductAction extends BaseAction {
 			$data ['product_title'] = I ( 'product_title' );
 			$data ['product_pic_s'] = I ( 'product_pic_s' );
 			$data ['product_pic_b'] = I ( 'product_pic_b' );
-			$data ['product_content'] = $_POST ['product_content'];
+			$data ['product_content'] = get_quxiegang_text(I('product_content','',''));
 			$data ['product_reco'] = I ( 'product_reco' );
 			$data ['product_user'] = I ( 'product_user' );
 			$data ['product_time'] = getformat_time ( I ( 'product_time' ) );
@@ -214,9 +214,9 @@ class ProductAction extends BaseAction {
 			$param = "";
 			for($i = 0; $i < count ( $param_array ); $i ++) {
 				if ($i == 0) {
-					$param = str_ireplace ( "|", "", $_POST ['param' . $i] );
+					$param = str_ireplace ( "|", "", get_quxiegang_text($_POST ['param' . $i]) );
 				} else {
-					$param = $param . "|" . str_ireplace ( "|", "", $_POST ['param' . $i] );
+					$param = $param . "|" . str_ireplace ( "|", "", get_quxiegang_text($_POST ['param' . $i]) );
 				}
 			}
 			$data ['param'] = $param;
@@ -240,7 +240,8 @@ class ProductAction extends BaseAction {
 			$data ['bak2'] = I ( 'bak2' );
 			
 			if (false !== $products->where ( 'id=%d', I ( 'id' ) )->save ( $data )) {
-				$this->success ( '数据更新成功！', U ( "getlist", array ("type_id" => $data ['type_id'] ) ) );
+				//$this->success ( '数据更新成功！', U ( "getlist", array ("type_id" => $data ['type_id'] ) ) );
+				alert("数据更新成功！","getlist?type_id=".$data ['type_id'] );
 			} else {
 				$this->error ( '数据写入错误' );
 			}
@@ -263,7 +264,8 @@ class ProductAction extends BaseAction {
 		$mymodual = $Modual->where ( $condition )->find ();
 		
 		if ($Modual->where ( 'id=%d', $_GET ['id'] )->delete ()) {
-			$this->success ( '数据删除成功！', U ( "getlist", array ("type_id" => $mymodual ["type_id"] ) ) );
+			//$this->success ( '数据删除成功！', U ( "getlist", array ("type_id" => $mymodual ["type_id"] ) ) );
+		    alert("数据删除成功！","getlist?type_id=".$mymodual ["type_id"] );
 		} else {
 			$this->error ( '数据写入错误' );
 		}

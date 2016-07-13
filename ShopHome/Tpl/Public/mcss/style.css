@@ -22,14 +22,14 @@ body {background-color: #fff;}
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span{ background: #0195a1;}
 .owl-item.loading{min-height: 150px;background: url(AjaxLoader.gif) no-repeat center center}*/
-#nav { background-color: #0186d1; margin-bottom: 1px; padding-left: 1px;}
+#nav { background-color: #00adef; margin-bottom: 1px; padding-left: 1px;}
 #nav li { float: left; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box; width: 20%; height: 40px; line-height: 40px; text-align: center; border: 1px solid #fff; color: #fff; margin-bottom: -1px; border-left: 0 none; white-space: nowrap; -ms-text-overflow: ellipsis;text-overflow: ellipsis;}
 #nav li a { color: #fff;}
 .mbox h2 { padding: 4% 0}
 .mbox h2 img { width: 100%;}
 .mbox h3 { text-align: center; margin-bottom: 30px;}
 
-.mtabt li { float: left; margin-left: 10px; border: 1px solid #494949; height: 40px; line-height: 40px; width: 27%; text-align: center;}
+.mtabt li { float: left; margin-left: 10%; margin-bottom:10px;  border: 1px solid #494949; height: 40px; line-height: 40px; width: 35%; text-align: center;}
 .mlist { padding: 20px 10px;}
 .mlist li { float: left; width: 50%; text-align: center; padding: 10px 0;}
 .mlist li img { width: 90%; border: 1px solid #c5c5c5; padding: 1px;}
@@ -40,16 +40,16 @@ body {background-color: #fff;}
 .choosepic { padding: 6px; border: 1px solid #cec8c7; background-color: #fff; margin:5% auto;}
 .choosepic img,.aboutpic img,.newslist li .npic img { width: 100%;}
 .abouttxt { line-height: 1.8;}
-.about h2 { background-color: #1773cc; color: #fff; padding:3% 5%; font-size: 1.6em; font-weight: bold;}
+.about h2 { background-color: #00adef; color: #fff; padding:3% 5%; font-size: 1.6em; font-weight: bold;}
 .aboutcon { padding: 5%;}
 .aboutpic { border: 1px solid #ddd; padding: 6px;}
 .aboutinfo { padding: 5% 0; color: #494949; line-height: 1.6;}
 .aboutinfo p { text-indent: 30px;}
-.viewmore a { display: block; text-align: center; border-radius: 10px; height: 40px; color: #fff; background-color: #03669d; line-height: 40px;}
+.viewmore a { display: block; text-align: center; border-radius: 10px; height: 40px; color: #fff; background-color: #00adef; line-height: 40px;}
 .ntab {}
 .ntabt { background-color: #cbcbcb; height: 50px;}
-.ntabt li { float: left; width: 30%; text-align: center; height: 50px; line-height: 50px; color: #063d5c; font-weight: bold;}
-.ntabt li.on { background-color: #03669d; color: #fff;}
+.ntabt li { float: left; width: 50%; text-align: center; height: 50px; line-height: 50px; color: #063d5c; font-weight: bold;}
+.ntabt li.on { background-color: #00adef; color: #fff; width:50%;}
 .newstabt { padding: 40px 20px 0; }
 .newstabt li { float: left; width: 30%; text-align: center; height: 50px; line-height: 50px; color: #fff; background-color: #3e3836; margin-right: 10px;}
 .newstabt li.on { background-color: #cc0202;}
@@ -61,7 +61,7 @@ body {background-color: #fff;}
 .newslist li .ninfo h5 { font-size: 1.1em; line-height: 2;}
 .newslist li .ninfo p { text-indent: 30px; line-height: 1.6; font-size: .9em;}
 #footer { background-color: #313131; color: #9b9a9a; font-size: .9em; text-align: center; padding: 25px 0 85px; line-height: 1.8;}
-.botnav { height: 60px; position: fixed; bottom: 0; width: 100%; left: 0; background-color: #03669d;}
+.botnav { height: 60px; position: fixed; bottom: 0; width: 100%; left: 0; background-color: #00adef;}
 .botnav li { float: left; width: 22%; height: 60px; line-height: 60px; text-align: center; border-right: 1px solid #f07f76; position: relative; z-index: 222;}
 .botnav li a { display: inline-block; width: 100%; height: 25px; padding-top: 35px; line-height: 20px; font-size: 1.1em; color: #fff; background: url(../mimages/bicon1.png) no-repeat center 7px;}
 .botnav li:nth-child(2) a { background-image: url(../mimages/bicon2.png);}

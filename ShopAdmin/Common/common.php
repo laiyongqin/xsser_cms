@@ -404,4 +404,27 @@ function get_gaojimoxing_sql_info($modual_id,$table_name) {
 	return $mymodual;
 }
 
+function get_quxiegang_text($contents_file_up){
+    if (get_magic_quotes_gpc()) // 如果get_magic_quotes_gpc()是打开的
+    {
+        return stripslashes($contents_file_up); // 将字符串进行处理
+    }else {
+        return $contents_file_up; // 将字符串直接返回
+    }
+}
+
+function alert($str,$url)
+{
+    echo "<html xmlns='http://www.w3.org/1999/xhtml'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head>";
+    echo "<script language='javascript'>alert('" . $str . "');";
+    if(strlen($url)>0)
+    {
+        echo "window.location='".$url."';</script>";
+    }
+    else
+    {
+        echo "history.go(-1);</script>";
+    }
+}
+
 ?>
